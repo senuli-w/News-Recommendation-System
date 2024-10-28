@@ -11,6 +11,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class HelloApplication extends Application {
@@ -73,6 +74,11 @@ public class HelloApplication extends Application {
 
         int totalResults = jsonObject.getInt("totalResults");
         System.out.println(totalResults);
-
+        JSONArray articles = jsonObject.getJSONArray("articles");
+        for (int i = 0; i < 3; i++){
+            System.out.println(articles.getJSONObject(i).getString("author"));
+            System.out.println(articles.getJSONObject(i).getString("title"));
+            System.out.println();
+        }
     }
 }
