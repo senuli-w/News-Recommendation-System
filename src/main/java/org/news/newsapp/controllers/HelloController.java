@@ -1,4 +1,4 @@
-package org.news.newsapp;
+package org.news.newsapp.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
