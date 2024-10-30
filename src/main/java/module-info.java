@@ -5,6 +5,7 @@ module org.news.newsapp {
     requires com.fasterxml.jackson.databind;
     requires org.mongodb.driver.sync.client;
     requires org.mongodb.driver.core;
+    requires org.mongodb.bson;
 
 
     opens org.news.newsapp to javafx.fxml;

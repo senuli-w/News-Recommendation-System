@@ -15,8 +15,8 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.news.newsapp.models.Article;
+import org.news.newsapp.models.Source;
 
 public class HelloApplication extends Application {
 
@@ -31,8 +31,8 @@ public class HelloApplication extends Application {
     }
 
     public static void main(String[] args) {
-        getApiData("emotional");
         DatabaseConnection.connect();
+        getApiData("emotional");
         launch();
     }
 
@@ -72,13 +72,14 @@ public class HelloApplication extends Application {
         }
     }
 
-    public static void parseJson(String s, String mainKeyword) throws IOException {
+    /*public static void parseJson(String s, String mainKeyword) throws IOException {
         JSONObject jsonObject = new JSONObject(s);
         System.out.println(jsonObject);
 
         int totalResults = jsonObject.getInt("totalResults");
-//        System.out.println(totalResults);
+        System.out.println(totalResults);
         JSONArray articles = jsonObject.getJSONArray("articles");
+        System.out.println(articles.length());
 
         ObjectMapper mapper = new ObjectMapper();
         ArrayList<Article> articleList = mapper.readValue(articles.toString(), ArrayList.class);
@@ -90,5 +91,48 @@ public class HelloApplication extends Application {
 
         System.out.println(articleList.size());
 //        System.out.println(articleList.getFirst().getKeywords());
+    }*/
+
+
+    public static void parseJson(String s, String mainKeyword) throws IOException {
+        JSONObject jsonObject = new JSONObject(s);
+        System.out.println(jsonObject);
+
+        JSONArray articles = jsonObject.getJSONArray("articles");
+
+        ArrayList<Article> articleList = new ArrayList<>();
+
+        for (int i = 0; i < 20; i++) {
+            JSONObject articleJson = articles.getJSONObject(i);
+
+            // Check if 'source' is not null
+            JSONObject sourceJson = articleJson.optJSONObject("source");
+            Source source = null;
+            if (sourceJson != null) {
+                String id = sourceJson.optString("id", "nan"); // Get id safely
+                String name = sourceJson.optString("name", "nan"); // Default name if null
+                source = new Source(id, name);
+            }
+
+            // Create an ArrayList with just the mainKeyword
+            ArrayList<String> keywords = new ArrayList<>();
+            keywords.add(mainKeyword); // Add mainKeyword to the keywords list
+
+            // Create Article object
+            Article article = new Article(
+                    source,
+                    articleJson.optString("author", "nan"),
+                    articleJson.optString("title", "nan"),
+                    articleJson.optString("description", "nan"),
+                    articleJson.optString("url", "nan"),
+                    articleJson.optString("urlToImage", "nan"),
+                    articleJson.optString("publishedAt", "nan"),
+                    articleJson.optString("content", "nan"),
+                    keywords
+            );
+            articleList.add(article);
+            DatabaseConnection.saveArticleToDatabase(article);
+        }
+        System.out.println(articleList.size());
     }
 }

@@ -11,7 +11,7 @@ public class Article {
     String urlToImage;
     String publishedAt;
     String content;
-//    ArrayList<String> keywords;
+    ArrayList<String> keywords;
 
     public Article(Source source, String author, String title, String description, String url, String urlToImage, String publishedAt, String content, ArrayList<String> keywords) {
         this.source = source;
@@ -22,7 +22,7 @@ public class Article {
         this.urlToImage = urlToImage;
         this.publishedAt = publishedAt;
         this.content = content;
-//        this.keywords = keywords;
+        this.keywords = keywords;
     }
 
     public Source getSource() {
@@ -89,11 +89,11 @@ public class Article {
         this.content = content;
     }
 
-//    public ArrayList<String> getKeywords() {
-//        return keywords;
-//    }
-//
-//    public void setKeywords(ArrayList<String> keywords) {
-//        this.keywords = keywords;
-//    }
+    public ArrayList<String> getKeywords() {
+        return keywords;
+    }
+
+    public void setKeywords(ArrayList<String> keywords) {
+        this.keywords = keywords;
+    }
 }
