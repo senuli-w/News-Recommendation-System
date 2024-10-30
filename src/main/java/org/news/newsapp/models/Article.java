@@ -1,5 +1,7 @@
 package org.news.newsapp.models;
 
+import java.util.ArrayList;
+
 public class Article {
     Source source;
     String author;
@@ -9,8 +11,9 @@ public class Article {
     String urlToImage;
     String publishedAt;
     String content;
+//    ArrayList<String> keywords;
 
-    public Article(Source source, String author, String title, String description, String url, String urlToImage, String publishedAt, String content) {
+    public Article(Source source, String author, String title, String description, String url, String urlToImage, String publishedAt, String content, ArrayList<String> keywords) {
         this.source = source;
         this.author = author;
         this.title = title;
@@ -19,6 +22,7 @@ public class Article {
         this.urlToImage = urlToImage;
         this.publishedAt = publishedAt;
         this.content = content;
+//        this.keywords = keywords;
     }
 
     public Source getSource() {
@@ -84,4 +88,12 @@ public class Article {
     public void setContent(String content) {
         this.content = content;
     }
+
+//    public ArrayList<String> getKeywords() {
+//        return keywords;
+//    }
+//
+//    public void setKeywords(ArrayList<String> keywords) {
+//        this.keywords = keywords;
+//    }
 }

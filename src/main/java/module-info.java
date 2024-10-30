@@ -3,6 +3,8 @@ module org.news.newsapp {
     requires javafx.fxml;
     requires org.json;
     requires com.fasterxml.jackson.databind;
+    requires org.mongodb.driver.sync.client;
+    requires org.mongodb.driver.core;
 
 
     opens org.news.newsapp to javafx.fxml;

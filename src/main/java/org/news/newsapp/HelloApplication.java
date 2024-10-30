@@ -31,18 +31,18 @@ public class HelloApplication extends Application {
     }
 
     public static void main(String[] args) {
-        getApiData();
+        getApiData("emotional");
+        DatabaseConnection.connect();
         launch();
     }
 
-    public static void getApiData(){
-        // method 1 : java.net.HTTPURLConnection
-
+    public static void getApiData(String mainKeyword){
         BufferedReader reader;
         String line;
         StringBuffer responseContent = new StringBuffer();
+        String urlString = "https://newsapi.org/v2/everything?q=" + mainKeyword + "&from=2024-10-25&sortBy=publishedAt&language=en&apiKey=b562b8cb5aa645f4901d43503256bf3a";
         try {
-            URL url = new URL("https://newsapi.org/v2/top-headlines?language=en&apiKey=b562b8cb5aa645f4901d43503256bf3a");
+            URL url = new URL(String.format(urlString, mainKeyword));
             connection = (HttpURLConnection) url.openConnection();
             // Request setup
             connection.setRequestMethod("GET");
@@ -63,7 +63,7 @@ public class HelloApplication extends Application {
                 while ((line = reader.readLine()) != null){
                     responseContent.append(line);
                 }
-                parseJson(responseContent.toString());
+                parseJson(responseContent.toString(), mainKeyword);
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -72,20 +72,23 @@ public class HelloApplication extends Application {
         }
     }
 
-    public static void parseJson(String s) throws IOException {
+    public static void parseJson(String s, String mainKeyword) throws IOException {
         JSONObject jsonObject = new JSONObject(s);
         System.out.println(jsonObject);
 
         int totalResults = jsonObject.getInt("totalResults");
-        System.out.println(totalResults);
+//        System.out.println(totalResults);
         JSONArray articles = jsonObject.getJSONArray("articles");
 
         ObjectMapper mapper = new ObjectMapper();
         ArrayList<Article> articleList = mapper.readValue(articles.toString(), ArrayList.class);
 
-        System.out.println(articleList);
+//        for (Article article : articleList){
+//            article.setKeywords(new ArrayList<>());
+//            article.getKeywords().add(mainKeyword);
+//        }
+
         System.out.println(articleList.size());
+//        System.out.println(articleList.getFirst().getKeywords());
     }
-
-
 }
