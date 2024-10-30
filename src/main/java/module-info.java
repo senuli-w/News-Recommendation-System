@@ -2,6 +2,7 @@ module org.news.newsapp {
     requires javafx.controls;
     requires javafx.fxml;
     requires org.json;
+    requires com.fasterxml.jackson.databind;
 
 
     opens org.news.newsapp to javafx.fxml;

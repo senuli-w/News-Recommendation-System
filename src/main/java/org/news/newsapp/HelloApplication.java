@@ -10,9 +10,13 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.news.newsapp.models.Article;
 
 public class HelloApplication extends Application {
 
@@ -68,17 +72,20 @@ public class HelloApplication extends Application {
         }
     }
 
-    public static void parseJson(String s){
+    public static void parseJson(String s) throws IOException {
         JSONObject jsonObject = new JSONObject(s);
         System.out.println(jsonObject);
 
         int totalResults = jsonObject.getInt("totalResults");
         System.out.println(totalResults);
         JSONArray articles = jsonObject.getJSONArray("articles");
-        for (int i = 0; i < 3; i++){
-            System.out.println(articles.getJSONObject(i).getString("author"));
-            System.out.println(articles.getJSONObject(i).getString("title"));
-            System.out.println();
-        }
+
+        ObjectMapper mapper = new ObjectMapper();
+        ArrayList<Article> articleList = mapper.readValue(articles.toString(), ArrayList.class);
+
+        System.out.println(articleList);
+        System.out.println(articleList.size());
     }
+
+
 }
