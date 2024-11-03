@@ -1,0 +1,81 @@
+.page-bg {
+    -fx-background-color: #f9f4ed;
+    -fx-font-family: SansSerif;
+    -fx-text-fill: #2a2a2a;
+}
+
+.tab-btn {
+    -fx-background-radius: 0;
+    -fx-background-color: transparent;
+    -fx-font-size: 14;
+    -fx-text-fill: #2a2a2a;
+    -fx-padding: 2 15;
+}
+
+.logo{
+    -fx-background-color: transparent;
+    -fx-font-size: 36;
+    -fx-font-weight: Bold;
+    -fx-padding: 0;
+}
+
+.page-sub-topic{
+    -fx-font-size: 44;
+}
+
+.label, .button{
+    -fx-text-fill: #2a2a2a;
+}
+
+.category-btn{
+    -fx-font-size: 18;
+    -fx-background-color: transparent;
+    -fx-border-color: #2a2a2a;
+    -fx-border-radius: 20;
+    -fx-padding: 5 15;
+}
+
+.article-topic{
+    -fx-font-size: 20;
+    -fx-padding: 4;
+}
+
+.article-description{
+    -fx-padding: 4;
+    -fx-font-size: 14;
+}
+
+.article-author{
+    -fx-padding: 4;
+    -fx-font-size: 15;
+    -fx-font-weight: bold;
+}
+
+.article-source-name{
+    -fx-font-size: 12;
+    -fx-padding: 0 4;
+}
+
+.article-separator{
+    -fx-background-color: #2a2a2a;
+}
+
+.scroll-pane{
+    -fx-background-color: #f9f4ed;
+}
+
+.current-page-tab{
+    -fx-text-fill: #af695c;
+}
+
+.current-page-category{
+    -fx-border-color: #af695c;
+}
+
+.no-image-article{
+    -fx-background-color: #af695c;
+}
+
+.no-image-article-label{
+    -fx-text-fill: #f9f4ed;
+}

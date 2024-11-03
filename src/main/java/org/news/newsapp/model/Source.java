@@ -1,4 +1,4 @@
-package org.news.newsapp.models;
+package org.news.newsapp.model;
 
 public class Source {
     String id;

@@ -1,4 +1,4 @@
-package org.news.newsapp.models;
+package org.news.newsapp.model;
 
 import java.util.ArrayList;
 
