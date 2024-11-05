@@ -70,6 +70,7 @@
 
 .current-page-category{
     -fx-border-color: #af695c;
+    -fx-text-fill: #af695c;
 }
 
 .no-image-article{

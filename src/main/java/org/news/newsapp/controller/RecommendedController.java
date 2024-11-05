@@ -1,14 +1,17 @@
 package org.news.newsapp.controller;
 
 import com.fasterxml.jackson.databind.node.ContainerNode;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import org.news.newsapp.model.Article;
 import org.news.newsapp.service.DatabaseService;
@@ -18,6 +21,9 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class RecommendedController implements Initializable {
+    @FXML
+    public HBox categories;
+    public Button currentPage;
     @FXML
     public VBox sideBar1;
     @FXML
@@ -30,11 +36,20 @@ public class RecommendedController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        chooseCategory();
         loadArticles();
     }
 
+    private void chooseCategory(){
+        for (Node child: categories.getChildren()){
+            if (child.getStyleClass().contains("current-page-category")){
+                currentPage = (Button) child;
+            }
+        }
+    }
+
     private void loadArticles(){
-        ArrayList<Article> articles = DatabaseService.getArticles();
+        ArrayList<Article> articles = DatabaseService.getArticles(currentPage.getText());
 
         sideBar1.getChildren().clear();
         middleBar.getChildren().clear();
@@ -104,8 +119,15 @@ public class RecommendedController implements Initializable {
             // Add the article VBox to the main articleContainer
             currentNode.getChildren().add(articleContainer);
 
-
         }
     }
 
+    @FXML
+    public void changeCategory(ActionEvent event) {
+        Button clickedButton = (Button) event.getSource();
+        currentPage.getStyleClass().remove("current-page-category");
+        currentPage = clickedButton;
+        clickedButton.getStyleClass().add("current-page-category");
+        loadArticles();
+    }
 }

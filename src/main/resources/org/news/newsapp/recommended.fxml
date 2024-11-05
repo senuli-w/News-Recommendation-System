@@ -38,22 +38,20 @@
             <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
          </padding>
       </HBox>
-      <HBox prefHeight="45.0" prefWidth="1390.0" spacing="15.0">
+      <HBox fx:id="categories" prefHeight="45.0" prefWidth="1390.0" spacing="15.0">
          <children>
-            <Button mnemonicParsing="false" text="Recommended for you">
+            <Button mnemonicParsing="false" styleClass="category-btn" text="Recommended for you" />
+            <Button mnemonicParsing="false" onAction="#changeCategory" styleClass="category-btn" text="Politics" />
+            <Button mnemonicParsing="false" onAction="#changeCategory" styleClass="category-btn" text="Business" />
+            <Button mnemonicParsing="false" onAction="#changeCategory" text="Arts">
                <styleClass>
                   <String fx:value="category-btn" />
-                  <String fx:value="current-page-tab" />
                   <String fx:value="current-page-category" />
-               </styleClass>
-            </Button>
-            <Button mnemonicParsing="false" styleClass="category-btn" text="Politics" />
-            <Button mnemonicParsing="false" styleClass="category-btn" text="Business" />
-            <Button mnemonicParsing="false" styleClass="category-btn" text="Arts" />
-            <Button mnemonicParsing="false" styleClass="category-btn" text="Science" />
-            <Button mnemonicParsing="false" styleClass="category-btn" text="Health" />
-            <Button mnemonicParsing="false" styleClass="category-btn" text="Sports" />
-            <Button mnemonicParsing="false" styleClass="category-btn" text="Technology" />
+               </styleClass></Button>
+            <Button mnemonicParsing="false" onAction="#changeCategory" styleClass="category-btn" text="Science" />
+            <Button mnemonicParsing="false" onAction="#changeCategory" styleClass="category-btn" text="Health" />
+            <Button mnemonicParsing="false" onAction="#changeCategory" styleClass="category-btn" text="Sports" />
+            <Button mnemonicParsing="false" onAction="#changeCategory" styleClass="category-btn" text="Technology" />
          </children>
          <padding>
             <Insets bottom="10.0" left="40.0" right="40.0" top="10.0" />
@@ -69,24 +67,21 @@
             <HBox prefHeight="100.0" prefWidth="1390.0" spacing="40.0" styleClass="scroll-pane">
                <children>
                   <VBox prefHeight="565.0" prefWidth="300.0">
-                     <VBox prefHeight="1000.0" prefWidth="278.0" fx:id="sideBar1">
+                     <VBox fx:id="sideBar1" prefHeight="1000.0" prefWidth="278.0">
                         <VBox fx:id="articleContainer" spacing="4.0" styleClass="article-container">
                            <padding>
-                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </padding>
-                           <ImageView fitHeight="212.0" fitWidth="253.0" pickOnBounds="true"
-                                      preserveRatio="true"/>
-                           <Label styleClass="article-topic" text="Unrecognized Genius"/>
-                           <Label prefWidth="254.0" styleClass="article-description"
-                                  text="oidw foirew gj rou jgo owowo ifoe woeo j ouejo roe orweouoruworewouro wtuotuoiu eooepq pupeq ndif eifueiu ewu giegeuu ei eu uwei g"
-                                  wrapText="true"/>
-                           <Label styleClass="article-author" text="Wade Warran"/>
-                           <Label text="source Name" styleClass="article-source-name"/>
-                           <Separator prefHeight="0.5" styleClass="article-separator"/>
+                           <ImageView fitHeight="212.0" fitWidth="253.0" pickOnBounds="true" preserveRatio="true" />
+                           <Label styleClass="article-topic" text="Unrecognized Genius" />
+                           <Label prefWidth="254.0" styleClass="article-description" text="oidw foirew gj rou jgo owowo ifoe woeo j ouejo roe orweouoruworewouro wtuotuoiu eooepq pupeq ndif eifueiu ewu giegeuu ei eu uwei g" wrapText="true" />
+                           <Label styleClass="article-author" text="Wade Warran" />
+                           <Label styleClass="article-source-name" text="source Name" />
+                           <Separator prefHeight="0.5" styleClass="article-separator" />
                         </VBox>
                      </VBox>
                   </VBox>
-                  <VBox prefHeight="586.0" prefWidth="800.0" HBox.hgrow="ALWAYS" fx:id="middleBar">
+                  <VBox fx:id="middleBar" prefHeight="586.0" prefWidth="800.0" HBox.hgrow="ALWAYS">
                      <children>
                         <VBox fx:id="middleArticle" spacing="4.0">
                            <children>
@@ -106,11 +101,11 @@
                         </VBox>
                      </children>
                   </VBox>
-                  <VBox prefHeight="200.0" prefWidth="350.0" fx:id="sideBar2">
+                  <VBox fx:id="sideBar2" prefHeight="200.0" prefWidth="350.0">
                      <children>
                         <VBox prefHeight="1000.0" prefWidth="250.0" spacing="5.0">
                            <children>
-                              <VBox alignment="CENTER_LEFT" prefWidth="273.0" spacing="20.0" styleClass="no-image-article" fx:id="noImageArticle">
+                              <VBox fx:id="noImageArticle" alignment="CENTER_LEFT" prefWidth="273.0" spacing="20.0" styleClass="no-image-article">
                                  <children>
                                     <Label text="Unrecognized Genius">
                                        <styleClass>
