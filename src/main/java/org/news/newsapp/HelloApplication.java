@@ -5,18 +5,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.ArrayList;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import org.news.newsapp.model.Article;
-import org.news.newsapp.model.Source;
 import org.news.newsapp.service.DatabaseService;
 
 public class HelloApplication extends Application {
@@ -24,7 +15,7 @@ public class HelloApplication extends Application {
     private static HttpURLConnection connection;
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("recommended.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("signup.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1390, 780);
         stage.setTitle("Hello!");
         stage.setScene(scene);

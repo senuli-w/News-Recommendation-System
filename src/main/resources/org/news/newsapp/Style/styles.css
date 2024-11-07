@@ -80,3 +80,29 @@
 .no-image-article-label{
     -fx-text-fill: #f9f4ed;
 }
+
+.login-signup-title{
+    -fx-font-size: 24;
+}
+
+.login-signup-text{
+    -fx-font-size: 18;
+}
+
+.login-signup-field{
+    -fx-font-size: 18;
+    -fx-pref-height: 20;
+    -fx-pref-width: 400;
+    -fx-border-radius: 8px;
+    -fx-background-color: transparent;
+    -fx-border-color: #2a2a2a;
+}
+
+.login-signup-button{
+    -fx-font-size: 20;
+}
+
+.error-label{
+    -fx-text-fill: #ff001e;
+    -fx-font-size: 14;
+}
