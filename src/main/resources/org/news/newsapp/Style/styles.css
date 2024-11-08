@@ -92,7 +92,7 @@
 .login-signup-field{
     -fx-font-size: 18;
     -fx-pref-height: 20;
-    -fx-pref-width: 400;
+    -fx-pref-width: 350;
     -fx-border-radius: 8px;
     -fx-background-color: transparent;
     -fx-border-color: #2a2a2a;
@@ -105,4 +105,25 @@
 .error-label{
     -fx-text-fill: #ff001e;
     -fx-font-size: 14;
+}
+
+.category-box{
+    -fx-font-size: 22;
+    -fx-padding: 5 20;
+    -fx-border-radius: 20px;
+    -fx-border-color: darkblue;
+    -fx-background-color: lightblue;
+}
+
+.category-box-selected{
+    -fx-border-radius: 20px;
+    -fx-background-color: blue;
+}
+
+.set-category-btn{
+    -fx-font-size: 22;
+    -fx-padding: 5 20;
+    -fx-border-radius: 20px;
+    -fx-border-color: darkblue;
+    -fx-background-color: transparent;
 }

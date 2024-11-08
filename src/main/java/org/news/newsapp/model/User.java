@@ -7,9 +7,11 @@ public class User {
     private String email;
     private String password;
 
-    public User(String name, String email, String password) {
-        this.name = name;
-        this.email = email;
+    public User(){}
+
+    public User(String name,String email, String password) {
+        setName(name);
+        setEmail(email);
         this.password = password;
     }
 
@@ -31,15 +33,22 @@ public class User {
         return email;
     }
 
-    public void setEmail(String email) {
+    public boolean setEmail(String email) {
+        if (email.trim().isEmpty()) {return false;}
+        if (email.contains(" ")) {return false;}
+        if (email.split("@").length != 2){return false;}
+        if (!email.split("@")[1].contains(".")){return false;}
         this.email = email;
+        return true;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
+    public boolean setPassword(String password) {
+        if (password.trim().isEmpty()){return false;}
         this.password = password;
+        return true;
     }
 }
