@@ -4,6 +4,9 @@ import java.util.ArrayList;
 
 public class NormalUser extends User {
     private ArrayList<Category> categories;
+    private ArrayList<String> viewedArticles;
+    private ArrayList<String> ratedArticles;
+    private ArrayList<Integer> ratings;
 
     public NormalUser(){
         categories = new ArrayList<>();
@@ -18,6 +21,5 @@ public class NormalUser extends User {
             categories = new ArrayList<>();
         }
         categories.add(Category.valueOf(category.toUpperCase()));
-//        goToHome();
     }
 }

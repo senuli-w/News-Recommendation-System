@@ -13,6 +13,8 @@ import org.news.newsapp.model.User;
 
 import java.util.ArrayList;
 
+import static com.mongodb.client.model.Filters.eq;
+
 public class DatabaseService {
     private static MongoClient mongoClient;
     private static MongoDatabase database;
@@ -41,6 +43,26 @@ public class DatabaseService {
         return articles;
     }
 
+    public static ArrayList<Article> getArticlesFromCategory(String category) {
+        ArrayList<Article> articles = new ArrayList<>();
+        MongoCollection<Document> collection = database.getCollection("article");
+
+        // Find documents where the 'category' field matches the given category
+        for (Document doc : collection.find(eq("category", category)).limit(5)) {
+            Article article = new Article(
+                    doc.getString("link"),
+                    doc.getString("headline"),
+                    doc.getString("category"),
+                    doc.getString("short_description"),
+                    doc.getString("authors"),
+                    doc.getString("date")
+            );
+            articles.add(article);
+        }
+        return articles;
+    }
+
+
     public static void createAccount(User newUser){
         MongoCollection<Document> collection = database.getCollection("user");
         collection.insertOne(newUser.toDocument());
@@ -56,7 +78,7 @@ public class DatabaseService {
 
     public static void deleteAccount(String email){
         MongoCollection<Document> collection = database.getCollection("user");
-        collection.deleteOne(Filters.eq("email", email));
+        collection.deleteOne(eq("email", email));
     }
 
     public static ArrayList<String> getCategoryList() {
@@ -66,7 +88,6 @@ public class DatabaseService {
         for (String category : collection.distinct("category", String.class)) {
             categories.add(category);
         }
-
         return categories;
     }
 }

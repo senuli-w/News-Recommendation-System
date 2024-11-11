@@ -15,7 +15,7 @@ public class HelloApplication extends Application {
     private static HttpURLConnection connection;
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("signup.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("homePage.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1390, 780);
         stage.setTitle("Hello!");
         stage.setScene(scene);

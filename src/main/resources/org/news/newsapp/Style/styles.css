@@ -127,3 +127,29 @@
     -fx-border-color: darkblue;
     -fx-background-color: transparent;
 }
+
+.home-page-category{
+    -fx-font-size: 20;
+}
+
+.home-page-title{
+}
+
+.home-page-category-box {
+}
+
+.home-page-category-que {
+}
+
+.home-page-article-title {
+    -fx-font-size: 35;
+    -fx-font-weight: 800;
+}
+
+.-home-page-article {
+    -fx-background-color: #fc460b;
+    -fx-border-radius: 10px;
+}
+
+.home-page-article-author-date {
+}
