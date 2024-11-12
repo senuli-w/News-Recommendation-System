@@ -30,7 +30,7 @@
         </padding>
     </HBox>
    <Pane prefHeight="97.0" prefWidth="1390.0" />
-   <Label fx:id="loginSignupPageTitle" styleClass="login-signup-title" text="Sign Up" />
+   <Label styleClass="login-signup-title" text="Sign Up" />
    <Pane prefHeight="29.0" prefWidth="1390.0" />
    <BorderPane prefHeight="394.0" prefWidth="1390.0">
       <center>
@@ -65,7 +65,7 @@
                </HBox>
                <VBox alignment="CENTER" prefHeight="67.0" prefWidth="570.0">
                   <children>
-                     <Label fx:id="errorLabel" styleClass="error-label" text="error" />
+                     <Label fx:id="errorLabel" styleClass="error-label" />
                   </children>
                </VBox>
                <Button fx:id="loginSignupPageButton" mnemonicParsing="false" onAction="#signUp" styleClass="login-signup-button" text="Sign Up" />

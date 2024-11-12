@@ -21,8 +21,6 @@ import java.util.Objects;
 
 public class SignupController {
     @FXML
-    public Label loginSignupPageTitle;
-    @FXML
     public Button loginSignupPageButton;
     @FXML
     public TextField emailField;
@@ -37,15 +35,17 @@ public class SignupController {
     public boolean signUp(ActionEvent event) throws IOException {
         errorLabel.setText("");
         User user = new NormalUser();
-        if (!user.setEmail(emailField.getText())) {
+        if (!User.validateEmail(emailField.getText())) {
             errorLabel.setText("Email is invalid.");
             return false;
         }
         if (passwordField.getText().length() < 7) {
             errorLabel.setText("Password must be at least 7 characters long.");
+            return false;
         }
         if (!user.setPassword(passwordField.getText())){
             errorLabel.setText("Invalid Password.");
+            return false;
         }
         user.setName(nameField.getText());
         user.setEmail(emailField.getText());
@@ -56,7 +56,6 @@ public class SignupController {
         return true;
     }
 
-    @FXML
     public void goToCategoryPage(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(Objects.requireNonNull(HelloApplication.class.getResource("categories.fxml")));
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

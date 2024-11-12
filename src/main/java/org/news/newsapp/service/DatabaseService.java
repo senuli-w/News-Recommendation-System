@@ -12,6 +12,7 @@ import org.bson.Document;
 import org.news.newsapp.model.User;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 import static com.mongodb.client.model.Filters.eq;
 
@@ -74,6 +75,19 @@ public class DatabaseService {
 
     public static User getCurrentUser() {
         return currentUser;
+    }
+
+    public static User getUser(String email){
+        MongoCollection<Document> collection = database.getCollection("user");
+        Document doc = collection.find(eq("email", email)).first();
+
+        if (doc != null) {
+            User newUser = new User(doc.getString("email"),
+                    doc.getString("name"),
+                    doc.getString("password"));
+            return newUser;
+        }
+        return null;
     }
 
     public static void deleteAccount(String email){
