@@ -3,6 +3,7 @@ package org.news.newsapp.model;
 import java.util.ArrayList;
 
 public class Article {
+    private String id;
     private String link;
     private String headline;
     private String category;
@@ -65,5 +66,13 @@ public class Article {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

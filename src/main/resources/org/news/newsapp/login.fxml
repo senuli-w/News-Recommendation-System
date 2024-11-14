@@ -70,6 +70,6 @@
             <Pane prefHeight="394.0" prefWidth="410.0" BorderPane.alignment="CENTER" />
         </right>
     </BorderPane>
-   <Button mnemonicParsing="false" onAction="#goToSignUpPage" style="-fx-background-color: transparent;" styleClass="login-signup-button" text="No account? Sign up" />
+   <Button mnemonicParsing="false" onAction="#goToSignUpPage" style="-fx-background-color: transparent;" styleClass="go-to-login-signup" text="No account? Sign up" />
 
 </VBox>

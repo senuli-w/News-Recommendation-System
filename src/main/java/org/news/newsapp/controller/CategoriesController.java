@@ -49,6 +49,6 @@ public class CategoriesController implements Initializable {
              }
         }
 
-        DatabaseService.createAccount(user);
+//        DatabaseService.createAccount(user);
     }
 }

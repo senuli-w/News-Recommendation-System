@@ -55,6 +55,7 @@ public class SignupController {
         user.setEmail(emailField.getText());
         user.setPassword(passwordField.getText());
 
+        DatabaseService.createAccount(user);
         DatabaseService.loginUser(user);
         Navigator.goTo(event, "homePage.fxml");
         return true;

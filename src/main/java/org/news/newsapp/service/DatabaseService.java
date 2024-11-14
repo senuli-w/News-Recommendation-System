@@ -28,7 +28,7 @@ public class DatabaseService {
 
     public static ArrayList<Article> getArticles(){
         ArrayList<Article> articles = new ArrayList<>();
-        MongoCollection<Document> collection = database.getCollection("article");
+        MongoCollection<Document> collection = database.getCollection("reduced_article_collection");
 
         for (Document doc : collection.find()){
             Article article = new Article(
@@ -39,6 +39,7 @@ public class DatabaseService {
                     doc.getString("authors"),
                     doc.getString("date")
             );
+            article.setId(doc.getObjectId("_id").toString());
             articles.add(article);
         }
         return articles;
@@ -46,7 +47,7 @@ public class DatabaseService {
 
     public static ArrayList<Article> getArticlesFromCategory(String category) {
         ArrayList<Article> articles = new ArrayList<>();
-        MongoCollection<Document> collection = database.getCollection("article");
+        MongoCollection<Document> collection = database.getCollection("reduced_article_collection");
 
         // Find documents where the 'category' field matches the given category
         for (Document doc : collection.find(eq("category", category)).limit(5)) {
@@ -58,6 +59,7 @@ public class DatabaseService {
                     doc.getString("authors"),
                     doc.getString("date")
             );
+            article.setId(doc.getObjectId("_id").toString());
             articles.add(article);
         }
         return articles;
@@ -97,7 +99,7 @@ public class DatabaseService {
 
     public static ArrayList<String> getCategoryList() {
         ArrayList<String> categories = new ArrayList<>();
-        MongoCollection<Document> collection = database.getCollection("article");
+        MongoCollection<Document> collection = database.getCollection("reduced_article_collection");
 
         for (String category : collection.distinct("category", String.class)) {
             categories.add(category);

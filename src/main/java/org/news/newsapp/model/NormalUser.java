@@ -22,4 +22,36 @@ public class NormalUser extends User {
         }
         categories.add(Category.valueOf(category.toUpperCase()));
     }
+
+    public ArrayList<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(ArrayList<Category> categories) {
+        this.categories = categories;
+    }
+
+    public ArrayList<String> getViewedArticles() {
+        return viewedArticles;
+    }
+
+    public void setViewedArticles(ArrayList<String> viewedArticles) {
+        this.viewedArticles = viewedArticles;
+    }
+
+    public ArrayList<String> getRatedArticles() {
+        return ratedArticles;
+    }
+
+    public void setRatedArticles(ArrayList<String> ratedArticles) {
+        this.ratedArticles = ratedArticles;
+    }
+
+    public ArrayList<Integer> getRatings() {
+        return ratings;
+    }
+
+    public void setRatings(ArrayList<Integer> ratings) {
+        this.ratings = ratings;
+    }
 }

@@ -1,15 +1,20 @@
 package org.news.newsapp.controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import org.news.newsapp.model.Article;
+import org.news.newsapp.model.NormalUser;
 import org.news.newsapp.service.DatabaseService;
+import org.news.newsapp.util.Navigator;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -39,7 +44,7 @@ public class HomePageController implements Initializable {
                 VBox article = new VBox();
                 article.setPadding(new Insets(18));
                 article.setSpacing(5);
-                article.getStyleClass().add("-home-page-article");
+                article.getStyleClass().add("home-page-article");
                 article.setAlignment(Pos.CENTER_LEFT);
                 article.setPrefWidth(441);
                 Label articleTopic = new Label(articlesFromCategory.get(i).getHeadline());
@@ -56,6 +61,13 @@ public class HomePageController implements Initializable {
                 articleAuthorDate.getStyleClass().add("home-page-article-author-date");
                 article.getChildren().add(articleTopic);
                 article.getChildren().add(articleAuthorDate);
+                article.setOnMouseClicked(event -> {
+                    try {
+                        goToArticle(event);
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                });
                 articleBoxes.getChildren().add(article);
             }
             articlePane.getChildren().add(categoryPane);
@@ -65,5 +77,16 @@ public class HomePageController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadArticles();
+    }
+
+    @FXML
+    public void goToArticle(MouseEvent event) throws IOException {
+        VBox source = (VBox) event.getSource();
+        String articleId = (String) source.getUserData();  // Make sure to set articleId as user data
+
+        NormalUser currentUser = (NormalUser) DatabaseService.getCurrentUser();
+        currentUser.getViewedArticles().add(articleId);
+        System.out.println(currentUser.getViewedArticles());
+        Navigator.goTo(event, "article.fxml", "");
     }
 }

@@ -1,3 +1,7 @@
+button:hover{
+    -fx-background-color: #ffefd0;
+}
+
 .page-bg {
     -fx-background-color: #f9f4ed;
     -fx-font-family: SansSerif;
@@ -146,10 +150,37 @@
     -fx-font-weight: 800;
 }
 
-.-home-page-article {
+.home-page-article {
     -fx-background-color: #fc460b;
     -fx-border-radius: 10px;
 }
 
 .home-page-article-author-date {
+}
+
+.article-page-title {
+    -fx-font-size: 30;
+    -fx-font-weight: 700;
+}
+
+.go-to-login-signup {
+    -fx-font-size: 20;
+}
+
+.go-to-login-signup:hover{
+    -fx-underline: true;
+}
+
+.article-page-author-date {
+    -fx-font-size: 16 ;
+}
+
+.article-page-content {
+    -fx-font-size: 18;
+    -fx-wrap-text: true;
+    -fx-text-alignment: justify;
+}
+
+.recommended-title{
+    -fx-font-size: 18;
 }

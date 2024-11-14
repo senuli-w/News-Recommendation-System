@@ -25,7 +25,7 @@
                         </Label>
                         <HBox prefHeight="148.0" prefWidth="1372.0" spacing="10.0" styleClass="home-page-category-que" VBox.vgrow="ALWAYS">
                            <children>
-                              <VBox alignment="CENTER_LEFT" prefHeight="228.0" prefWidth="441.0" spacing="5.0" style="-fx-background-color: gray;" styleClass="-home-page-article">
+                              <VBox alignment="CENTER_LEFT" prefHeight="228.0" prefWidth="441.0" spacing="5.0" style="-fx-background-color: gray;" styleClass="home-page-article" onMouseClicked="#goToArticle">
                                  <children>
                                     <Label prefWidth="400.0" styleClass="home-page-article-title" text="23 Of The Funniest Tweets About Cats And Dogs This Week (Sept. 17-23) and here is the biggest info guess what i dont know anything, you are dumb wi=diw-idwuf0w fue e 0fe0f uef of" wrapText="true" />
                                     <Label styleClass="home-page-article-author-date" text="Elyse Wanshel          2022.08.09" />

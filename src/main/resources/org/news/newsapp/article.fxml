@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="780.0" prefWidth="1390.0" styleClass="page-bg" stylesheets="@Style/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.news.newsapp.controller.ArticleController">
+    <children>
+        <HBox alignment="CENTER_LEFT" prefHeight="129.0" prefWidth="1390.0">
+            <children>
+                <Label fx:id="articleTitle" styleClass="article-page-title" text="Article Title" />
+            </children>
+         <padding>
+            <Insets bottom="20.0" left="60.0" right="20.0" top="20.0" />
+         </padding></HBox>
+        <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+         <content>
+            <VBox prefWidth="1370.0">
+               <children>
+                  <HBox prefWidth="1370.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <VBox prefHeight="363.0" prefWidth="946.0" spacing="40.0">
+                           <padding>
+                              <Insets bottom="10.0" left="25.0" right="25.0" top="10.0" />
+                           </padding>
+                           <children>
+                              <HBox alignment="CENTER_LEFT" prefHeight="27.0" prefWidth="1351.0" spacing="55.0">
+                                 <children>
+                                    <Label fx:id="articleAuthor" styleClass="article-page-author-date" text="By Jane A Blake" />
+                                    <Label fx:id="articleDate" styleClass="article-page-author-date" text="02.05.2022" />
+                                 </children>
+                                 <padding>
+                                    <Insets right="25.0" />
+                                 </padding>
+                              </HBox>
+                              <Label fx:id="articleContent" styleClass="article-page-content" text="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum  reiciendis blanditiis enim natus? Deserunt, tempora assumenda excepturi  voluptates amet facilis ad animi itaque reiciendis, voluptas cum magnam  delectus ratione ipsum!Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum  reiciendis blanditiis enim natus? Deserunt, tempora assumenda excepturi  voluptates amet facilis ad animi itaque reiciendis, voluptas cum magnam  delectus ratione ipsum!Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum  reiciendis blanditiis enim natus? Deserunt, tempora assumenda excepturi  voluptates amet facilis ad animi itaque reiciendis, voluptas cum magnam  delectus ratione ipsum!Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum  reiciendis blanditiis enim natus? Deserunt, tempora assumenda excepturi  voluptates amet facilis ad animi itaque reiciendis, voluptas cum magnam  delectus ratione ipsum!Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum  reiciendis blanditiis enim natus? Deserunt, tempora assumenda excepturi  voluptates amet facilis ad animi itaque reiciendis, voluptas cum magnam  delectus ratione ipsum!Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum  reiciendis blanditiis enim natus? Deserunt, tempora assumenda excepturi  voluptates amet facilis ad animi itaque reiciendis, voluptas cum magnam  delectus ratione ipsum!Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum  reiciendis blanditiis enim natus? Deserunt, tempora assumenda excepturi  voluptates amet facilis ad animi itaque reiciendis, voluptas cum magnam  delectus ratione ipsum!Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum  reiciendis blanditiis enim natus? Deserunt, tempora assumenda excepturi  voluptates amet facilis ad animi itaque reiciendis, voluptas cum magnam  delectus ratione ipsum!Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum  reiciendis blanditiis enim natus? Deserunt, tempora assumenda excepturi  voluptates amet facilis ad animi itaque reiciendis, voluptas cum magnam  delectus ratione ipsum!Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum  reiciendis blanditiis enim natus? Deserunt, tempora assumenda excepturi  voluptates amet facilis ad animi itaque reiciendis, voluptas cum magnam  delectus ratione ipsum!Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum  reiciendis blanditiis enim natus? Deserunt, tempora assumenda excepturi  voluptates amet facilis ad animi itaque reiciendis, voluptas cum magnam  delectus ratione ipsum!Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum  reiciendis blanditiis enim natus? Deserunt, tempora assumenda excepturi  voluptates amet facilis ad animi itaque reiciendis, voluptas cum magnam  delectus ratione ipsum!" />
+                           </children>
+                        </VBox>
+                        <VBox prefWidth="428.0" spacing="20.0">
+                           <children>
+                              <Label styleClass="recommended-title" text="Recommended for you " />
+                              <VBox alignment="CENTER_LEFT" prefHeight="228.0" prefWidth="441.0" spacing="5.0" style="-fx-background-color: gray;" styleClass="home-page-article">
+                                 <children>
+                                    <Label prefWidth="400.0" styleClass="home-page-article-title" text="23 Of The Funniest Tweets About Cats And Dogs This Week (Sept. 17-23) and here is the biggest info guess what i dont know anything, you are dumb wi=diw-idwuf0w fue e 0fe0f uef of" wrapText="true" />
+                                    <Label styleClass="home-page-article-author-date" text="Elyse Wanshel          2022.08.09" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="18.0" left="18.0" right="18.0" top="18.0" />
+                                 </padding>
+                              </VBox>
+                              <VBox alignment="CENTER_LEFT" prefHeight="228.0" prefWidth="441.0" spacing="5.0" style="-fx-background-color: gray;" styleClass="home-page-article">
+                                 <children>
+                                    <Label prefWidth="400.0" styleClass="home-page-article-title" text="23 Of The Funniest Tweets About Cats And Dogs This Week (Sept. 17-23) and here is the biggest info guess what i dont know anything, you are dumb wi=diw-idwuf0w fue e 0fe0f uef of" wrapText="true" />
+                                    <Label styleClass="home-page-article-author-date" text="Elyse Wanshel          2022.08.09" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="18.0" left="18.0" right="18.0" top="18.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </content>
+        </ScrollPane>
+    </children>
+</VBox>
