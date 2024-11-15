@@ -9,11 +9,18 @@ public class NormalUser extends User {
     private ArrayList<Integer> ratings;
 
     public NormalUser(){
+        viewedArticles = new ArrayList<>();
+        ratedArticles = new ArrayList<>();
+        ratings = new ArrayList<>();
         categories = new ArrayList<>();
     }
 
     public NormalUser(String name, String email, String password){
         super(name, email, password);
+        viewedArticles = new ArrayList<>();
+        ratedArticles = new ArrayList<>();
+        ratings = new ArrayList<>();
+        categories = new ArrayList<>();
     }
 
     public void addCategory(String category){

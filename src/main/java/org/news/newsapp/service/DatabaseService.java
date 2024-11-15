@@ -9,6 +9,7 @@ import com.mongodb.client.model.Filters;
 import org.news.newsapp.model.Article;
 
 import org.bson.Document;
+import org.news.newsapp.model.NormalUser;
 import org.news.newsapp.model.User;
 
 import java.util.ArrayList;
@@ -84,12 +85,21 @@ public class DatabaseService {
         Document doc = collection.find(eq("email", email)).first();
 
         if (doc != null) {
-            User newUser = new User(doc.getString("email"),
+            if (doc.containsKey("")){}
+            return new NormalUser(doc.getString("email"),
                     doc.getString("name"),
                     doc.getString("password"));
-            return newUser;
         }
         return null;
+    }
+
+    public static boolean userExists(String email){
+        MongoCollection<Document> collection = database.getCollection("user");
+        Document doc = collection.find(eq("email", email)).first();
+        if (doc == null){
+            return false;
+        }
+        return true;
     }
 
     public static void deleteAccount(String email){

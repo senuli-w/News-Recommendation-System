@@ -38,11 +38,20 @@ public class SignupController {
     @FXML
     public boolean signUp(ActionEvent event) throws IOException {
         errorLabel.setText("");
-        User user = new NormalUser();
+        NormalUser user = new NormalUser();
+        if (emailField.getText().isEmpty() || passwordField.getText().isEmpty() || nameField.getText().isEmpty()) {
+            errorLabel.setText("Please enter all values.");
+            return false;
+        }
         if (!User.validateEmail(emailField.getText())) {
             errorLabel.setText("Email is invalid.");
             return false;
         }
+        if (DatabaseService.userExists(emailField.getText())){
+            errorLabel.setText("User from this email already exists.");
+            return false;
+        }
+
         if (passwordField.getText().length() < 7) {
             errorLabel.setText("Password must be at least 7 characters long.");
             return false;

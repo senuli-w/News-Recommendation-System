@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import org.news.newsapp.model.NormalUser;
 import org.news.newsapp.model.User;
 import org.news.newsapp.service.DatabaseService;
 import org.news.newsapp.util.Navigator;
@@ -29,7 +30,7 @@ public class LogInController {
             errorLabel.setText("Invalid email.");
             return false;
         }
-        User user = DatabaseService.getUser(emailField.getText());
+        NormalUser user = (NormalUser) DatabaseService.getUser(emailField.getText());
         if (user == null){
             errorLabel.setText("Invalid email.");
             return false;

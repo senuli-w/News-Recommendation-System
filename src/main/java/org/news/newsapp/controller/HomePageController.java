@@ -61,6 +61,7 @@ public class HomePageController implements Initializable {
                 articleAuthorDate.getStyleClass().add("home-page-article-author-date");
                 article.getChildren().add(articleTopic);
                 article.getChildren().add(articleAuthorDate);
+                article.setUserData(articlesFromCategory.get(i).getId());
                 article.setOnMouseClicked(event -> {
                     try {
                         goToArticle(event);
