@@ -87,6 +87,7 @@ public class HomePageController implements Initializable {
 
         NormalUser currentUser = (NormalUser) DatabaseService.getCurrentUser();
         currentUser.getViewedArticles().add(articleId);
+        DatabaseService.trackArticleView(currentUser.getEmail(), articleId); //Updating view Articles in the DB
         System.out.println(currentUser.getViewedArticles());
         Navigator.goTo(event, "article.fxml", "");
     }

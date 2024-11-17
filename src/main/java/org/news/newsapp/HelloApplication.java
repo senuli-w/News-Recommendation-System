@@ -27,7 +27,6 @@ public class HelloApplication extends Application {
         launch();
     }
 
-
 //    public static void parseJson(String s, String mainKeyword) throws IOException {
 //        JSONObject jsonObject = new JSONObject(s);
 //        System.out.println(jsonObject);

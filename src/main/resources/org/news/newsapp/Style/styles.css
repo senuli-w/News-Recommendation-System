@@ -1,5 +1,5 @@
 button:hover{
-    -fx-background-color: #ffefd0;
+    -fx-background-color: orange;
 }
 
 .page-bg {
@@ -183,4 +183,9 @@ button:hover{
 
 .recommended-title{
     -fx-font-size: 18;
+}
+
+.article-page-go-back-button {
+    -fx-font-size: 20;
+    -fx-background-color: transparent;
 }
