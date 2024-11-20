@@ -1,6 +1,5 @@
 package org.news.newsapp.controller;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
@@ -47,14 +46,14 @@ public class HomePageController implements Initializable {
                 article.getStyleClass().add("home-page-article");
                 article.setAlignment(Pos.CENTER_LEFT);
                 article.setPrefWidth(441);
-                Label articleTopic = new Label(articlesFromCategory.get(i).getHeadline());
+                Label articleTopic = new Label(articlesFromCategory.get(i).getTitle());
                 articleTopic.getStyleClass().add("home-page-article-title");
                 articleTopic.setWrapText(true);
                 Label articleAuthorDate;
-                if (articlesFromCategory.get(i).getAuthors().isEmpty()){
+                if (articlesFromCategory.get(i).getAuthor().isEmpty()){
                     articleAuthorDate = new Label(articlesFromCategory.get(i).getDate());
                 } else {
-                    articleAuthorDate = new Label(articlesFromCategory.get(i).getAuthors()
+                    articleAuthorDate = new Label(articlesFromCategory.get(i).getAuthor()
                             + "        "
                             + articlesFromCategory.get(i).getDate());
                 }

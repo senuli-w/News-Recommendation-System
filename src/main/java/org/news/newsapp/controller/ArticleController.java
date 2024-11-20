@@ -7,7 +7,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import org.news.newsapp.model.Article;
 import org.news.newsapp.model.NormalUser;
 import org.news.newsapp.service.DatabaseService;
@@ -30,6 +31,8 @@ public class ArticleController implements Initializable {
     public Slider ratingSlider;
     @FXML
     public Label ratingLabel;
+    @FXML
+    public ImageView articleImage;
     private int ratingValue;
 
     @Override
@@ -38,10 +41,11 @@ public class ArticleController implements Initializable {
         String viewedArticleId =  currentUser.getViewedArticles().getLast();
         Article viewedArticle = DatabaseService.getArticle(viewedArticleId);
         assert viewedArticle != null;
-        articleTitle.setText(viewedArticle.getHeadline());
-        articleContent.setText(viewedArticle.getHeadline()+viewedArticle.getDescription());
-        articleAuthor.setText(viewedArticle.getAuthors());
+        articleTitle.setText(viewedArticle.getTitle());
+        articleContent.setText(viewedArticle.getDescription() + " " +viewedArticle.getContent());
+        articleAuthor.setText(viewedArticle.getAuthor());
         articleDate.setText(viewedArticle.getDate());
+        articleImage.setImage(new Image(viewedArticle.getUrlToImage()));
 
         ratingValue = (int) ratingSlider.getValue();
         ratingLabel.setText(Integer.toString(ratingValue));
@@ -51,6 +55,7 @@ public class ArticleController implements Initializable {
             public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
                 ratingValue = (int) ratingSlider.getValue();
                 ratingLabel.setText(Integer.toString(ratingValue));
+                setRatings(ratingValue);
             }
         });
     }
@@ -62,6 +67,9 @@ public class ArticleController implements Initializable {
 
     public void setRatings(int rating){
         NormalUser currentUser = (NormalUser) DatabaseService.getCurrentUser();
-
+        String userEmail = currentUser.getEmail();
+        String articleId = currentUser.getViewedArticles().getLast();
+        currentUser.getRatedArticles().add(articleId);
+        DatabaseService.trackArticleRatings(userEmail, articleId, rating);
     }
 }

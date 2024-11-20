@@ -14,7 +14,7 @@
     <children>
         <HBox alignment="CENTER_LEFT" prefHeight="129.0" prefWidth="1390.0">
             <children>
-                <Label fx:id="articleTitle" styleClass="article-page-title" text="Article Title" wrapText="true" />
+                <Label fx:id="articleTitle" styleClass="article-page-title" text="Article Title" />
             <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
             <Button mnemonicParsing="false" onAction="#goToHomePage" styleClass="article-page-go-back-button" text="Go Back" />
             </children>
@@ -50,8 +50,8 @@
                                     <Insets right="25.0" />
                                  </padding>
                               </HBox>
-                              <ImageView fitHeight="362.0" fitWidth="893.0" pickOnBounds="true" preserveRatio="true" />
-                              <Label fx:id="articleContent" styleClass="article-page-content" text="Lorem ipsum dolor, sit amet consectetur adipisicing elit." />
+                              <ImageView fx:id="articleImage" fitHeight="362.0" fitWidth="847.0" pickOnBounds="true" preserveRatio="true" />
+                              <Label fx:id="articleContent" styleClass="article-page-content" text="Lorem ipsum dolor, sit amet consectetur adipisicing elit." wrapText="true" />
                            </children>
                         </VBox>
                         <VBox prefWidth="428.0" spacing="20.0">

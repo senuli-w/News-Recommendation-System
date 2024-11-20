@@ -1,47 +1,33 @@
 package org.news.newsapp.model;
 
-import java.util.ArrayList;
-
 public class Article {
     private String id;
-    private String link;
-    private String headline;
-    private String category;
+    private String url;
+    private String title;
     private String description;
-    private String authors;
+    private String keyword;
+    private String content;
+    private String author;
     private String date;
+    private String urlToImage;
 
-    public Article(String link, String headline, String category, String description, String authors, String date) {
-        this.link = link;
-        this.headline = headline;
-        this.category = category;
-        this.description = description;
-        this.authors = authors;
+    public Article(String link, String title, String headline, String keyword, String content, String author, String date, String urlToImage) {
+        this.url = link;
+        this.title = title;
+        this.description = headline;
+        this.keyword = keyword;
+        this.content = content  ;
+        this.author = author;
         this.date = date;
+        this.urlToImage = urlToImage;
     }
 
-    public String getLink() {
-        return link;
+    public String getUrl() {
+        return url;
     }
 
-    public void setLink(String link) {
-        this.link = link;
-    }
-
-    public String getHeadline() {
-        return headline;
-    }
-
-    public void setHeadline(String headline) {
-        this.headline = headline;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public String getDescription() {
@@ -52,12 +38,28 @@ public class Article {
         this.description = description;
     }
 
-    public String getAuthors() {
-        return authors;
+    public String getKeyword() {
+        return keyword;
     }
 
-    public void setAuthors(String authors) {
-        this.authors = authors;
+    public void setKeyword(String keyword) {
+        this.keyword = keyword;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public String getDate() {
@@ -74,5 +76,21 @@ public class Article {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getUrlToImage() {
+        return urlToImage;
+    }
+
+    public void setUrlToImage(String urlToImage) {
+        this.urlToImage = urlToImage;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }
