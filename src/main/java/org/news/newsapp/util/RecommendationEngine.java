@@ -6,7 +6,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class RecommendationEngine implements Runnable{
@@ -112,13 +111,25 @@ public class RecommendationEngine implements Runnable{
                 }
             }
         }
-        List<Integer> recommendedItems = new ArrayList<>();
-        for
-        (int i = 0; i < weightedSums.length; i++) {
+        // Create a list of article indices and their scores
+        List<int[]> scoredArticles = new ArrayList<>();
+        for (int i = 0; i < weightedSums.length; i++) {
             if (similaritySums[i] > 0) {
-                recommendedItems.add(i);
+                // Calculate normalized score (weighted sum / similarity sum)
+                double score = weightedSums[i] / similaritySums[i];
+                scoredArticles.add(new int[]{i, (int) score}); // Store article index and score
             }
         }
+
+        // Sort articles by score in descending order
+        scoredArticles.sort((a, b) -> Double.compare(b[1], a[1]));
+
+        // Extract and return sorted article indices
+        List<Integer> recommendedItems = new ArrayList<>();
+        for (int[] article : scoredArticles) {
+            recommendedItems.add(article[0]); // Add article index
+        }
+
         return recommendedItems;
     }
 }
