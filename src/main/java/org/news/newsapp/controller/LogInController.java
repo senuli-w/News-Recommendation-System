@@ -1,56 +1,57 @@
-package org.news.newsapp.controller;
+package org.example.diagramnewsrecommendation.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import org.news.newsapp.model.NormalUser;
-import org.news.newsapp.model.User;
-import org.news.newsapp.service.DatabaseService;
-import org.news.newsapp.util.Navigator;
+import javafx.scene.input.MouseEvent;
+import org.example.diagramnewsrecommendation.db.UserService;
+import org.example.diagramnewsrecommendation.model.Admin;
+import org.example.diagramnewsrecommendation.model.Reader;
+import org.example.diagramnewsrecommendation.util.Navigator;
+import org.example.diagramnewsrecommendation.util.SessionManager;
 
 import java.io.IOException;
 
-public class LogInController {
+import static java.lang.Thread.sleep;
+
+public class LoginController{
     @FXML
-    public TextField emailField;
+    private TextField emailField;
     @FXML
-    public PasswordField passwordField;
+    private PasswordField passwordField;
     @FXML
-    public Label errorLabel;
-    @FXML
-    public Button loginSignupPageButton;
+    private Label errorLabel;
+    private final UserService userService = new UserService();
 
     @FXML
-    public boolean logIn(ActionEvent event) throws IOException {
+    public boolean login(ActionEvent event) throws IOException, InterruptedException {
         errorLabel.setText("");
-        if(!User.validateEmail(emailField.getText())){
-            errorLabel.setText("Invalid email.");
+        if (!userService.isAccountTaken(emailField.getText())){
+            errorLabel.setText("InvalidEmail");
             return false;
         }
-        NormalUser user = (NormalUser) DatabaseService.getUser(emailField.getText());
-        if (user == null){
-            errorLabel.setText("Invalid email.");
+        if (!userService.get(emailField.getText()).getPassword().equals(passwordField.getText())) {
+            errorLabel.setText("Incorrect password");
             return false;
         }
-        if (user.getPassword().equals(passwordField.getText())){
-            DatabaseService.loginUser(user);
-            goToHomePage(event);
-            return true;
+        if (userService.get(emailField.getText()).getType().equals("ADMIN")) {
+            Admin admin = (Admin) userService.get(emailField.getText());
+            SessionManager.login(admin);
+        } else {
+            Reader reader = (Reader) userService.get(emailField.getText());
+            SessionManager.login(reader);
         }
-        errorLabel.setText("Incorrect password.");
-        return false;
+        if (SessionManager.getCurrentUser().getType().equals("ADMIN")){
+            Navigator.goTo(event, "admin.fxml");
+        } else {
+            Navigator.goTo(event, "home.fxml");
+        }
+        return true;
     }
 
-    @FXML
-    public void goToHomePage(ActionEvent event) throws IOException {
-        Navigator.goTo(event, "homePage.fxml");
-    }
-
-    @FXML
-    public void goToSignUpPage(ActionEvent event) throws IOException {
-        Navigator.goTo(event, "signup.fxml");
+    public void goToSignupPage(MouseEvent mouseEvent) throws IOException {
+        Navigator.goTo(mouseEvent, "signup.fxml", "");
     }
 }

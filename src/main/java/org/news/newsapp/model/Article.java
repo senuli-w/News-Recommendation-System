@@ -1,49 +1,65 @@
-package org.news.newsapp.model;
+package org.example.diagramnewsrecommendation.model;
+
+import org.bson.Document;
 
 public class Article {
-    private String id;
-    private String url;
+    private int id;
     private String title;
-    private String description;
-    private String keyword;
     private String content;
     private String author;
-    private String date;
-    private String urlToImage;
+    private String imageUrl;
+    private String dateTime;
+    private String category;
 
-    public Article(String link, String title, String headline, String keyword, String content, String author, String date, String urlToImage) {
-        this.url = link;
+    public Article(int id, String title, String content, String author, String imageUrl, String dateTime, String category) {
+        this.id = id;
         this.title = title;
-        this.description = headline;
-        this.keyword = keyword;
-        this.content = content  ;
+        this.content = content;
         this.author = author;
-        this.date = date;
-        this.urlToImage = urlToImage;
+        this.imageUrl = imageUrl;
+        this.dateTime = dateTime;
+        this.category = category;
     }
 
-    public String getUrl() {
-        return url;
+    @Override
+    public String toString() {
+        return "Article{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", author='" + author + '\'' +
+                ", imageUrl='" + imageUrl + '\'' +
+                ", dateTime='" + dateTime + '\'' +
+                ", category='" + category + '\'' +
+                '}';
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public Document toDocument() {
+        Document document = new Document();
+        document.append("id", this.id);
+        document.append("title", this.title);
+        document.append("content", this.content);
+        document.append("author", this.author);
+        document.append("imageUrl", this.imageUrl);
+        document.append("dateTime", this.dateTime);
+        document.append("category", this.category);
+        return document;
     }
 
-    public String getDescription() {
-        return description;
+    public int getId() {
+        return id;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getKeyword() {
-        return keyword;
+    public String getTitle() {
+        return title;
     }
 
-    public void setKeyword(String keyword) {
-        this.keyword = keyword;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getContent() {
@@ -62,35 +78,27 @@ public class Article {
         this.author = author;
     }
 
-    public String getDate() {
-        return date;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
-    public String getId() {
-        return id;
+    public String getDateTime() {
+        return dateTime;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setDateTime(String dateTime) {
+        this.dateTime = dateTime;
     }
 
-    public String getUrlToImage() {
-        return urlToImage;
+    public String getCategory() {
+        return category;
     }
 
-    public void setUrlToImage(String urlToImage) {
-        this.urlToImage = urlToImage;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
+    public void setCategory(String category) {
+        this.category = category;
     }
 }

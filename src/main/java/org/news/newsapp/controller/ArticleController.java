@@ -1,75 +1,83 @@
-package org.news.newsapp.controller;
+package org.example.diagramnewsrecommendation.controller;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.Slider;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import org.news.newsapp.model.Article;
-import org.news.newsapp.model.NormalUser;
-import org.news.newsapp.service.DatabaseService;
-import org.news.newsapp.util.Navigator;
+import javafx.scene.input.MouseEvent;
+import org.example.diagramnewsrecommendation.db.UserService;
+import org.example.diagramnewsrecommendation.model.Article;
+import org.example.diagramnewsrecommendation.model.Reader;
+import org.example.diagramnewsrecommendation.util.Navigator;
+import org.example.diagramnewsrecommendation.util.SessionManager;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+
 public class ArticleController implements Initializable {
-    @FXML
-    public Label articleTitle;
-    @FXML
-    public Label articleAuthor;
-    @FXML
-    public Label articleDate;
-    @FXML
-    public Label articleContent;
-    @FXML
-    public Slider ratingSlider;
-    @FXML
-    public Label ratingLabel;
-    @FXML
-    public ImageView articleImage;
+    @FXML    public Label title;
+    @FXML    public Label author;
+    @FXML    public Label dateTime;
+    @FXML    public Label category;
+    @FXML    public ImageView image;
+    @FXML    public Label content;
+    @FXML    public Slider ratingSlider;
+    @FXML    public ProgressBar progressBar;
+    @FXML    public Label userName;
     private int ratingValue;
+    private final UserService userService = new UserService();
+
+    public void viewArticle(){
+        Reader currentUser = (Reader) SessionManager.getCurrentUser();
+        Article viewedArticle = currentUser.getViewedArticles().getLast();
+        title.setText(viewedArticle.getTitle());
+        author.setText(viewedArticle.getAuthor());
+        dateTime.setText(viewedArticle.getDateTime());
+        category.setText("Category : " + viewedArticle.getCategory());
+        image.setImage(new Image(viewedArticle.getImageUrl()));
+        content.setText(viewedArticle.getContent());
+    }
+    public void rateArticle(int rating){
+        Reader currentUser = (Reader) SessionManager.getCurrentUser();
+        String userEmail = currentUser.getEmail();
+        Article article = currentUser.getViewedArticles().getLast();
+        currentUser.getRatedArticles().add(article);
+        userService.trackArticleRatings(userEmail, article, rating);
+    }
+
+    public void goToHomePage(MouseEvent mouseEvent) throws IOException {
+        progressBar.setVisible(true);
+        Navigator.goTo(mouseEvent, "home.fxml", "");
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        NormalUser currentUser = (NormalUser) DatabaseService.getCurrentUser();
-        String viewedArticleId =  currentUser.getViewedArticles().getLast();
-        Article viewedArticle = DatabaseService.getArticle(viewedArticleId);
-        assert viewedArticle != null;
-        articleTitle.setText(viewedArticle.getTitle());
-        articleContent.setText(viewedArticle.getDescription() + " " +viewedArticle.getContent());
-        articleAuthor.setText(viewedArticle.getAuthor());
-        articleDate.setText(viewedArticle.getDate());
-        articleImage.setImage(new Image(viewedArticle.getUrlToImage()));
-
+        Reader currentUser = (Reader) SessionManager.getCurrentUser();
+        userName.setText(currentUser.getName());
+        viewArticle();
         ratingValue = (int) ratingSlider.getValue();
-        ratingLabel.setText(Integer.toString(ratingValue));
-
         ratingSlider.valueProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observableValue, Number number, Number t1) {
                 ratingValue = (int) ratingSlider.getValue();
-                ratingLabel.setText(Integer.toString(ratingValue));
-                setRatings(ratingValue);
+                rateArticle(ratingValue);
             }
         });
     }
 
-    @FXML
-    public void goToHomePage(ActionEvent event) throws IOException {
-        Navigator.goTo(event, "homePage.fxml");
+    public void goToProfilePage(MouseEvent mouseEvent) throws IOException {
+        Navigator.goTo(mouseEvent, "profile.fxml", "");
     }
 
-    public void setRatings(int rating){
-        NormalUser currentUser = (NormalUser) DatabaseService.getCurrentUser();
-        String userEmail = currentUser.getEmail();
-        String articleId = currentUser.getViewedArticles().getLast();
-        currentUser.getRatedArticles().add(articleId);
-        DatabaseService.trackArticleRatings(userEmail, articleId, rating);
+    public void logOut(MouseEvent mouseEvent) throws IOException {
+        SessionManager.logout();
+        Navigator.goTo(mouseEvent, "login.fxml", "");
     }
 }

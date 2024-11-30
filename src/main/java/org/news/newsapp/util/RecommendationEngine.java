@@ -1,44 +1,49 @@
-package org.news.newsapp.util;
+package org.example.diagramnewsrecommendation.util;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import org.bson.Document;
+import org.example.diagramnewsrecommendation.model.Reader;
+
+import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class RecommendationEngine implements Runnable{
+
+public class RecommendationEngine {
+    private int userId;
     private int[][] userRatings;
     private double[][] similarityMatrix;
-    public void checkUrl(){
-        URL fileUrl = this.getClass().getClassLoader().getResource("user_article_ratings_simple.csv");
-        System.out.println(fileUrl);
-    }
+    private Document readerDocument;
+    private final String filePath = "C:\\Users\\Senuli\\Documents\\OOP\\DiagramNewsRecommendation\\src\\main\\resources\\org\\example\\diagramnewsrecommendation\\Data\\user_article_ratings_simple.csv";
+    private List<Integer> recommendations;
 
-    @Override
-    public void run() {
-        String filePath = "C:\\Users\\Senuli\\Documents\\OOP\\RecommenderSystem\\src\\main\\resources\\user_article_ratings_simple.csv";
+    public RecommendationEngine (Reader reader){
+        readerDocument = reader.toDocument();
         try {
             loadCsvFile(filePath);
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
         computeSimilarityMatrix();
-        int userId = 4; // lets recommend items for user 0
-        List<Integer> recommendations = recommendItems(userId, userRatings, similarityMatrix);
-//        System.out.println("Recommended items for user " + userId + ": " + recommendations);
+    }
+
+    public List<Integer> getRecommendations(){
+        recommendations = recommendItems();
         System.out.println(recommendations.size());
         int ratingCount = 0;
         for (int rating: userRatings[userId]){
             if (rating > 0) ratingCount++;
         }
         System.out.println(ratingCount);
+        return recommendations;
     }
 
     // Method to load the CSV file into the userRatings matrix
-    public void loadCsvFile(String filePath) throws FileNotFoundException {
+    private void loadCsvFile(String filePath) throws FileNotFoundException {
+        List<Document> ratedArticles = (List<Document>) readerDocument.get("ratedArticles");
+        List<Integer> articleRatings = (List<Integer>) readerDocument.get("ratings");
+
         URL fileUrl = this.getClass().getClassLoader().getResource("user_article_ratings_simple.csv");
         List<int[]> rows = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
@@ -55,6 +60,23 @@ public class RecommendationEngine implements Runnable{
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        int[] ratings = new int[rows.size()];
+
+        // Initialize ratings with default value (e.g., 0 for unrated articles)
+        Arrays.fill(ratings, 0);
+
+        for (int i=0; i<rows.size(); i++){
+            for(Document article: ratedArticles){
+                if ((Integer) article.get("id") == i) {
+                    ratings[i] = articleRatings.get(ratedArticles.indexOf(article));
+                }
+            }
+        }
+
+        userId = rows.indexOf(ratings);
+        rows.add(ratings);
+
         // Convert the list of rows to a 2D array
         userRatings = rows.toArray(new int[0][]);
     }
@@ -68,13 +90,7 @@ public class RecommendationEngine implements Runnable{
         }
     }
 
-
-    // Getter for userRatings
-    public int[][] getUserRatings() {
-        return userRatings;
-    }
-
-    public double cosineSimilarity(int[] ratingsA, int[] ratingsB) {
+    private double cosineSimilarity(int[] ratingsA, int[] ratingsB) {
         double dotProduct = 0.0;
         double magnitudeA = 0.0;
         double magnitudeB = 0.0;
@@ -88,7 +104,7 @@ public class RecommendationEngine implements Runnable{
         return dotProduct / (Math.sqrt(magnitudeA) * Math.sqrt(magnitudeB));
     }
 
-    public void computeSimilarityMatrix() {
+    private void computeSimilarityMatrix() {
         int noOfUsers = userRatings.length;
         similarityMatrix = new double[noOfUsers][noOfUsers];
 
@@ -99,14 +115,16 @@ public class RecommendationEngine implements Runnable{
         }
     }
 
-    public static List<Integer> recommendItems(int userId, int[][] userRatings, double[][] similarityMatrix) {
+    private List<Integer> recommendItems() {
         double[] weightedSums = new double[userRatings[0].length];
         double[] similaritySums = new double[userRatings[0].length];
+
         for (int i = 0; i < userRatings.length; i++) {
             if (i == userId) continue; // Skip the target user
 
             for (int j = 0; j < userRatings[i].length; j++) {
                 if (userRatings[userId][j] == 0 && userRatings[i][j] > 0) {
+                    // calculate weighted sum and similarity sum
                     weightedSums[j] += similarityMatrix[userId][i] * userRatings[i][j];
                     similaritySums[j] += similarityMatrix[userId][i];
                 }
@@ -124,6 +142,7 @@ public class RecommendationEngine implements Runnable{
 
         // Sort articles by score in descending order
         scoredArticles.sort((a, b) -> Double.compare(b[1], a[1]));
+        // printing scores for verification
         for (int i = 0; i < 12; i++){
             System.out.print(Arrays.toString(scoredArticles.get(i)) + " ");
         }
@@ -133,7 +152,6 @@ public class RecommendationEngine implements Runnable{
         for (int[] article : scoredArticles) {
             recommendedItems.add(article[0]); // Add article index
         }
-
         return recommendedItems;
     }
 }

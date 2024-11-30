@@ -1,27 +1,18 @@
-package org.news.newsapp.model;
+package org.example.diagramnewsrecommendation.model;
 
 import org.bson.Document;
 
-import java.util.ArrayList;
+public abstract class User {
+    protected String name;
+    protected String email;
+    protected String password;
+    protected String type;
 
-public class User {
-    private String name;
-    private String email;
-    private String password;
-
-    public User() {
-    }
-
-    public User(String name, String email, String password) {
-        setName(name);
-        setEmail(email);
+    public User(String name,  String email, String password, String type){
+        this.name = name;
+        this.email = email;
         this.password = password;
-    }
-
-    public Document toDocument() {
-        return new Document("name", this.name)
-                .append("email", this.email)
-                .append("password", this.password);
+        this.type = type;
     }
 
     public String getName() {
@@ -36,35 +27,16 @@ public class User {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public static boolean validateEmail(String email) {
-        if (email.trim().isEmpty()) {
-            return false;
-        }
-        if (email.contains(" ")) {
-            return false;
-        }
-        if (email.split("@").length != 2) {
-            return false;
-        }
-        if (!email.split("@")[1].contains(".")) {
-            return false;
-        }
-        return true;
-    }
-
     public String getPassword() {
         return password;
     }
 
-    public boolean setPassword(String password) {
-        if (password.trim().isEmpty()) {
-            return false;
-        }
+    public void setPassword(String password) {
         this.password = password;
-        return true;
     }
+
+    public String getType() {
+        return type;
+    }
+
 }
