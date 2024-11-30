@@ -1,0 +1,21 @@
+.article-topic {
+    -fx-text-fill: white;
+    -fx-font-size: 24;
+    -fx-font-weight: 700;
+    -fx-wrap-text: true;
+}
+
+.article-author, .article-date, .enter-rating, .article-category {
+    -fx-text-fill: #A9A19F;
+    -fx-font-size: 14;
+}
+
+.article-content {
+    -fx-font-size: 18;
+    -fx-text-fill: white;
+    -fx-wrap-text: true;
+}
+
+.slider {
+    -fx-tick-label-fill: white;
+}

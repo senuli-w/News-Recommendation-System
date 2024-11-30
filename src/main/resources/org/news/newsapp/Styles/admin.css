@@ -1,0 +1,34 @@
+.tab-pane {
+    -fx-background-color: transparent;
+}
+
+.tab {
+    -fx-background-color: transparent;
+}
+
+.tab:selected{
+    -fx-background-color: rgba(74, 64, 62, 0.85);
+    -fx-text-fill: white;
+}
+
+.tab-header-area{
+    -fx-background-color: blue;
+}
+
+.add-account {
+    -fx-text-fill: white;
+    -fx-font-size: 16;
+}
+
+.table-view {
+    -fx-background-color: rgb(91, 86, 85);
+    /*-fx-text-fill: whitesmoke;*/
+}
+
+.table-row-cell {
+    -fx-background-color: rgba(0,0,0,0.2);
+}
+
+.table-column {
+    -fx-text-fill: whitesmoke;
+}

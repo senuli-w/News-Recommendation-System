@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="520.0" prefWidth="800.0" styleClass="page-background" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.diagramnewsrecommendation.controller.AdminController">
+   <children>
+      <HBox prefHeight="100.0" prefWidth="200.0" styleClass="nav-bar">
+         <children>
+            <Label text="Admin Page">
+               <styleClass>
+                  <String fx:value="nav-elements" />
+                  <String fx:value="current" />
+               </styleClass>
+            </Label>
+            <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+            <Label fx:id="userName" styleClass="user-name" text="Senuli" />
+            <Label onMouseClicked="#logOut" styleClass="nav-elements" text="Log out" />
+         </children>
+      </HBox>
+      <TabPane prefHeight="467.0" prefWidth="800.0" side="LEFT" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Users">
+               <content>
+                  <HBox prefHeight="100.0" prefWidth="200.0" spacing="30.0">
+                     <children>
+                        <TableView fx:id="userTable" prefHeight="398.0" prefWidth="321.0">
+                           <columns>
+                              <TableColumn fx:id="userNameColumn" prefWidth="98.40001904964447" text="Name" />
+                              <TableColumn fx:id="userEmailColumn" prefWidth="144.80001068115234" text="Email" />
+                              <TableColumn fx:id="userTypeColumn" prefWidth="71.20001220703125" text="Type" />
+                           </columns>
+                        </TableView>
+                        <VBox alignment="BOTTOM_CENTER" prefHeight="398.0" prefWidth="334.0" spacing="12.0">
+                           <children>
+                              <Label prefHeight="19.0" prefWidth="115.0" styleClass="add-account" text="Registered Users" wrapText="true">
+                                 <VBox.margin>
+                                    <Insets bottom="100.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label alignment="TOP_LEFT" styleClass="add-account" text="Create new Admin Account" />
+                              <TextField fx:id="nameField" promptText="Name" styleClass="input-field" />
+                              <TextField fx:id="emailField" promptText="Email" styleClass="input-field" />
+                              <PasswordField fx:id="passwordField" promptText="Password" styleClass="input-field" />
+                              <Label fx:id="errorLabel" alignment="TOP_LEFT" prefHeight="14.0" prefWidth="342.0" styleClass="error-label" text="Please enter all details" textAlignment="CENTER" />
+                              <Button mnemonicParsing="false" onAction="#createAdminAccount" prefWidth="139.0" styleClass="btn" text="Create Admin Account" />
+                           </children>
+                        </VBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+                     </padding>
+                  </HBox>
+               </content>
+          </Tab>
+          <Tab text="Articles">
+               <content>
+                  <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <TableView fx:id="articleTable" prefHeight="445.0" prefWidth="710.0">
+                          <columns>
+                            <TableColumn fx:id="articleIdColumn" prefWidth="29.59998321533203" text="ID" />
+                            <TableColumn fx:id="articleTitleColumn" prefWidth="160.00003242492676" text="Title" />
+                              <TableColumn fx:id="articleContentColumn" prefWidth="202.3999786376953" text="Content" />
+                              <TableColumn fx:id="articleAuthorColumn" minWidth="3.99993896484375" prefWidth="129.60000610351562" text="Author" />
+                              <TableColumn fx:id="articleDateTimeColumn" minWidth="0.0" prefWidth="97.5999755859375" text="Date time" />
+                              <TableColumn fx:id="articleCategoryColumn" minWidth="9.5999755859375" prefWidth="82.4000244140625" text="Category" />
+                          </columns>
+                        </TableView>
+                     </children>
+                     <padding>
+                        <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+                     </padding></VBox>
+               </content>
+          </Tab>
+            <Tab text="Add new Article">
+              <content>
+                  <HBox alignment="CENTER_RIGHT">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="458.0" prefWidth="326.0" spacing="25.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label styleClass="add-account" text="Add new Article" />
+                              <Label fx:id="articleErrorLabel" alignment="TOP_LEFT" prefHeight="14.0" prefWidth="342.0" styleClass="error-label" text="Please enter all details" textAlignment="CENTER" />
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="458.0" prefWidth="409.0" spacing="10.0">
+                           <children>
+                              <TextField disable="true" promptText="Id" styleClass="input-field" />
+                              <TextField fx:id="titleField" promptText="Title" styleClass="input-field" />
+                              <TextField fx:id="authorField" promptText="Author" styleClass="input-field" />
+                              <TextField fx:id="contentField" promptText="Content" styleClass="input-field" />
+                              <TextField fx:id="categoryField" promptText="Category" styleClass="input-field" />
+                              <TextField fx:id="dateTimeField" promptText="Date Time" styleClass="input-field" />
+                              <TextField fx:id="imageUrlField" promptText="Image Url" styleClass="input-field" />
+                              <Button mnemonicParsing="false" onAction="#createNewArticle" styleClass="btn" text="Add new Article" />
+                           </children>
+                           <padding>
+                              <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </HBox>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+   <stylesheets>
+      <URL value="@Styles/main.css" />
+      <URL value="@Styles/admin.css" />
+   </stylesheets>
+</VBox>

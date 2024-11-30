@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class RecommendationEngine implements Runnable{
@@ -123,6 +124,9 @@ public class RecommendationEngine implements Runnable{
 
         // Sort articles by score in descending order
         scoredArticles.sort((a, b) -> Double.compare(b[1], a[1]));
+        for (int i = 0; i < 12; i++){
+            System.out.print(Arrays.toString(scoredArticles.get(i)) + " ");
+        }
 
         // Extract and return sorted article indices
         List<Integer> recommendedItems = new ArrayList<>();

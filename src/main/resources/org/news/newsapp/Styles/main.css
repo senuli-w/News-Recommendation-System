@@ -1,0 +1,83 @@
+.page-background {
+    -fx-background-color: #4A403E;
+}
+
+.label {
+    -fx-font-family: Calibri;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.nav-bar {
+    -fx-padding: 20 40;
+    -fx-pref-height: 62;
+}
+
+.nav-elements, .user-name {
+    -fx-font-family: Calibri;
+    -fx-font-size: 16;
+    -fx-text-fill: white;
+    -fx-font-weight: 600;
+    -fx-background-radius: 6;
+    -fx-padding: 2 8;
+}
+
+.nav-elements:hover, .current {
+    -fx-background-color: rgba(91, 86, 85, 0.75);
+}
+
+
+.input-field {
+    -fx-background-radius: 10;
+    -fx-background-color: rgba(91, 86, 85, 0.75);
+    -fx-pref-height: 40;
+    -fx-text-fill: #9a9898;
+}
+
+.error-label {
+    -fx-alignment: center;
+    -fx-text-fill: #ED4337;
+}
+
+.btn {
+    -fx-background-radius: 10;
+    -fx-text-fill: #A9A19F;
+    -fx-font-size: 16;
+    -fx-pref-height: 40;
+    -fx-background-color: #222F31;
+}
+
+.btn:hover{
+    -fx-background-color: rgba(34, 47, 49, 0.6);
+}
+
+.go-to-other-page {
+    -fx-font-family: Calibri;
+    -fx-text-fill: #A9A19F;
+}
+
+.page-topic {
+    -fx-font-family: Calibri;
+    -fx-font-weight: 600;
+    -fx-font-size: 37;
+    -fx-text-fill: white;
+}
+
+.go-to-other-page:hover {
+    -fx-underline: true;
+}
+
+.btn {
+    -fx-pref-width: 400;
+}
+
+.progress-bar{
+    -fx-accent: #4A403E;
+}
+

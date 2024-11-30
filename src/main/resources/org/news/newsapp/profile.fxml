@@ -6,19 +6,28 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER_LEFT" prefHeight="520.0" prefWidth="800.0" styleClass="page-background" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.diagramnewsrecommendation.controller.signupController">
+<VBox alignment="CENTER_LEFT" prefHeight="520.0" prefWidth="800.0" styleClass="page-background" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.diagramnewsrecommendation.controller.ProfileController">
    <children>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="nav-bar">
+      <HBox prefHeight="100.0" prefWidth="200.0" styleClass="nav-bar">
          <children>
-            <Label alignment="TOP_LEFT" styleClass="page-topic" text="Create new account" />
+            <Label onMouseClicked="#goToHomePage" styleClass="nav-elements" text="Home" />
+            <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+            <Label text="Profile">
+               <styleClass>
+                  <String fx:value="nav-elements" />
+                  <String fx:value="current" />
+               </styleClass>
+            </Label>
+            <Label fx:id="userName" styleClass="user-name" text="Senuli" />
+            <Label onMouseClicked="#logOut" styleClass="nav-elements" text="Log out" />
          </children>
       </HBox>
       <HBox alignment="CENTER" prefWidth="800.0" spacing="20.0">
@@ -31,10 +40,9 @@
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="368.0" spacing="12.0">
                <children>
                   <TextField fx:id="nameField" promptText="Name" styleClass="input-field" />
-                  <TextField fx:id="emailField" promptText="Email" styleClass="input-field" />
+                  <TextField fx:id="emailField" disable="true" editable="false" promptText="Email" styleClass="input-field" />
                   <PasswordField fx:id="passwordField" promptText="Password" styleClass="input-field" />
                   <Label fx:id="errorLabel" alignment="TOP_LEFT" prefHeight="14.0" prefWidth="342.0" styleClass="error-label" text="Please enter all details" textAlignment="CENTER" />
-                  <Label onMouseClicked="#goToLoginPage" styleClass="go-to-other-page" text="Already have an account? Login" textFill="#fffbfb" />
                </children>
             </VBox>
          </children>
@@ -42,12 +50,7 @@
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
          </padding>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-         <children>
-            <ProgressBar fx:id="progressBar" prefWidth="200.0" visible="false" />
-         </children>
-      </HBox>
-      <Label styleClass="your-categories" text="Choose your preferences to start with">
+      <Label styleClass="your-categories" text="Your Categories">
          <VBox.margin>
             <Insets left="40.0" top="10.0" />
          </VBox.margin>
@@ -76,7 +79,7 @@
             </FlowPane>
             <VBox alignment="BOTTOM_CENTER" prefHeight="184.0" prefWidth="151.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#createReaderAccount" prefWidth="139.0" styleClass="btn" text="Create Account" />
+                  <Button mnemonicParsing="false" onAction="#updateAccount" prefWidth="139.0" styleClass="btn" text="Update Account" />
                </children>
                <padding>
                   <Insets bottom="40.0" top="20.0" />

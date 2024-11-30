@@ -1,0 +1,16 @@
+.card {
+    -fx-pref-width: 240;
+    -fx-background-color: rgba(91, 86, 85, 0.75);
+}
+
+.card:hover {
+    -fx-cursor: hand;
+    -fx-background-color: rgba(91, 86, 85, 1);
+}
+
+.card-topic {
+    -fx-font-family: Calibri;
+    -fx-text-fill: white;
+    -fx-wrap-text: true;
+    -fx-font-size: 15.5;
+}

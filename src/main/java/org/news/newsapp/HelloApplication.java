@@ -25,7 +25,7 @@ public class HelloApplication extends Application {
 
     public static void main(String[] args) {
         DatabaseService.connect();
-        launch();
+//        launch();
         RecommendationEngine recommendationEngine = new RecommendationEngine();
         recommendationEngine.run();
     }

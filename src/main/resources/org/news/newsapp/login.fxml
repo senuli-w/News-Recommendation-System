@@ -1,75 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="780.0" prefWidth="1390.0" styleClass="page-bg" stylesheets="@Style/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.news.newsapp.controller.LogInController">
-    <HBox alignment="CENTER_LEFT" prefHeight="66.0" prefWidth="1390.0" spacing="16.0">
-        <children>
-            <Button mnemonicParsing="false" styleClass="tab-btn" text="Home" />
-            <Button mnemonicParsing="false" text="Latest News" textFill="#2a2a2a">
-                <styleClass>
-                    <String fx:value="tab-btn" />
-                    <String fx:value="current-page-tab" />
-                </styleClass>
-            </Button>
-            <Pane prefHeight="100.0" prefWidth="690.0" HBox.hgrow="ALWAYS" />
-            <Button mnemonicParsing="false" styleClass="tab-btn" text="Sign Up" />
-            <Button mnemonicParsing="false" styleClass="tab-btn" text="Admin Login" />
-        </children>
-        <padding>
-            <Insets left="40.0" right="40.0" />
-        </padding>
-    </HBox>
-    <Pane prefHeight="97.0" prefWidth="1390.0" />
-    <Label styleClass="login-signup-title" text="Log in" />
-    <Pane prefHeight="29.0" prefWidth="1390.0" />
-    <BorderPane prefHeight="394.0" prefWidth="1390.0">
-        <center>
-            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-                <children>
-                    <HBox alignment="CENTER" prefHeight="64.0" prefWidth="570.0" spacing="50.0">
-                        <children>
-                            <Label styleClass="login-signup-text" text="Email" />
-                            <TextField fx:id="emailField" styleClass="login-signup-field" />
-                        </children>
-                        <padding>
-                            <Insets left="15.0" right="15.0" />
-                        </padding>
-                    </HBox>
-                    <HBox alignment="CENTER" prefHeight="64.0" prefWidth="570.0" spacing="33.0">
-                        <children>
-                            <Label styleClass="login-signup-text" text="Password" />
-                            <PasswordField fx:id="passwordField" styleClass="login-signup-field" />
-                        </children>
-                        <padding>
-                            <Insets left="-1.0" right="15.0" />
-                        </padding>
-                    </HBox>
-                    <VBox alignment="CENTER" prefHeight="67.0" prefWidth="570.0">
-                        <children>
-                            <Label fx:id="errorLabel" styleClass="error-label" />
-                        </children>
-                    </VBox>
-                    <Button fx:id="loginSignupPageButton" mnemonicParsing="false" onAction="#logIn" styleClass="login-signup-button" text="Log In" />
-                </children>
-            </VBox>
-        </center>
-        <left>
-            <Pane prefHeight="394.0" prefWidth="410.0" BorderPane.alignment="CENTER" />
-        </left>
-        <right>
-            <Pane prefHeight="394.0" prefWidth="410.0" BorderPane.alignment="CENTER" />
-        </right>
-    </BorderPane>
-   <Button mnemonicParsing="false" onAction="#goToSignUpPage" style="-fx-background-color: transparent;" styleClass="go-to-login-signup" text="No account? Sign up" />
-
-</VBox>
+<HBox prefHeight="520.0" prefWidth="800.0" styleClass="page-background" stylesheets="@Styles/main.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.diagramnewsrecommendation.controller.LoginController">
+    <children>
+        <Pane prefHeight="520.0" prefWidth="400.0">
+            <children>
+                <ImageView fitHeight="520.0" fitWidth="410.0" layoutX="-5.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@Images/welcome.jpg" />
+                    </image>
+                </ImageView>
+            </children>
+        </Pane>
+        <VBox prefHeight="200.0" prefWidth="100.0" spacing="33.0" HBox.hgrow="ALWAYS">
+            <children>
+                <Label alignment="TOP_LEFT" styleClass="page-topic" text="Login" />
+                <Label onMouseClicked="#goToSignupPage" styleClass="go-to-other-page" text="No account? Create Account" textFill="#fffbfb" />
+                <VBox alignment="CENTER" prefWidth="100.0" spacing="12.0">
+                    <children>
+                        <TextField fx:id="emailField" promptText="Email" styleClass="input-field" />
+                        <PasswordField fx:id="passwordField" promptText="Password" styleClass="input-field" />
+                  <Label fx:id="errorLabel" alignment="TOP_LEFT" prefHeight="14.0" prefWidth="342.0" styleClass="error-label" textAlignment="CENTER" />
+                    </children>
+                </VBox>
+                <Button mnemonicParsing="false" onAction="#login" styleClass="btn" text="Login" />
+            <HBox alignment="CENTER" prefHeight="27.0" prefWidth="339.0">
+               <children>
+                  <ProgressBar fx:id="progressBar" prefWidth="200.0" visible="false" />
+               </children>
+            </HBox>
+            </children>
+            <padding>
+                <Insets bottom="30.0" left="30.0" right="30.0" top="75.0" />
+            </padding>
+        </VBox>
+    </children>
+</HBox>

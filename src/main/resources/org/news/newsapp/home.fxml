@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="800.0" styleClass="page-background" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.diagramnewsrecommendation.controller.HomeController">
+   <stylesheets>
+      <URL value="@Styles/main.css" />
+      <URL value="@Styles/home.css" />
+   </stylesheets>
+   <children>
+      <HBox prefHeight="62.0" prefWidth="800.0" styleClass="nav-bar">
+         <children>
+            <Label text="Home">
+               <styleClass>
+                  <String fx:value="nav-elements" />
+                  <String fx:value="current" />
+               </styleClass>
+            </Label>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <ProgressBar fx:id="progressBar" prefWidth="200.0" visible="false" />
+               </children>
+            </HBox>
+            <Label onMouseClicked="#goToProfilePage" styleClass="nav-elements" text="My Profile" />
+            <Label fx:id="userName" styleClass="user-name" text="Senuli" />
+            <Label onMouseClicked="#logOut" styleClass="nav-elements" text="Log out" />
+         </children>
+      </HBox>
+      <ScrollPane hbarPolicy="NEVER" prefWidth="200.0" VBox.vgrow="ALWAYS">
+         <content>
+            <FlowPane fx:id="cardArea" alignment="TOP_CENTER" columnHalignment="CENTER" hgap="10.0" prefHeight="531.0" prefWidth="782.0" vgap="10.0">
+               <children>
+                  <VBox prefWidth="100.0" spacing="8.0" styleClass="card">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="240.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@Images/welcome.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label styleClass="card-topic" text="Taiwan Semiconductor Manufacturing Company (TSM) Faces Market Uncertainty Despite $6.6 Billion CHIPS Act Boost" />
+                     </children>
+                     <padding>
+                        <Insets bottom="8.0" />
+                     </padding>
+                  </VBox>
+                  <VBox prefWidth="100.0" spacing="8.0" styleClass="card">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="240.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@Images/f90919c411d1aa5d89e5e74b1fb5e45e.jpeg" />
+                           </image>
+                        </ImageView>
+                        <Label styleClass="card-topic" text="Taiwan Semiconductor Manufacturing Company (TSM) Faces Market Uncertainty Despite $6.6 Billion CHIPS Act Boost" />
+                     </children>
+                     <padding>
+                        <Insets bottom="8.0" />
+                     </padding>
+                  </VBox>
+                  <VBox prefWidth="100.0" spacing="8.0" styleClass="card">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="240.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@Images/welcome.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label styleClass="card-topic" text="Taiwan Semiconductor Manufacturing Company (TSM) Faces Market Uncertainty Despite $6.6 Billion CHIPS Act Boost" />
+                     </children>
+                     <padding>
+                        <Insets bottom="8.0" />
+                     </padding>
+                  </VBox>
+                  <VBox prefWidth="100.0" spacing="8.0" styleClass="card">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="240.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@Images/welcome.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label styleClass="card-topic" text="Taiwan Semiconductor Manufacturing Company (TSM) Faces Market Uncertainty Despite $6.6 Billion CHIPS Act Boost" />
+                     </children>
+                     <padding>
+                        <Insets bottom="8.0" />
+                     </padding>
+                  </VBox>
+                  <VBox prefWidth="100.0" spacing="8.0" styleClass="card">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="240.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@Images/welcome.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label styleClass="card-topic" text="Taiwan Semiconductor Manufacturing Company (TSM) Faces Market Uncertainty Despite $6.6 Billion CHIPS Act Boost" />
+                     </children>
+                     <padding>
+                        <Insets bottom="8.0" />
+                     </padding>
+                  </VBox>
+                  <VBox prefWidth="100.0" spacing="8.0" styleClass="card">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="240.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@Images/f90919c411d1aa5d89e5e74b1fb5e45e.jpeg" />
+                           </image>
+                        </ImageView>
+                        <Label styleClass="card-topic" text="Taiwan Semiconductor Manufacturing Company (TSM) Faces Market Uncertainty Despite $6.6 Billion CHIPS Act Boost" />
+                     </children>
+                     <padding>
+                        <Insets bottom="8.0" />
+                     </padding>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </FlowPane>
+         </content>
+      </ScrollPane>
+   </children>
+</VBox>
