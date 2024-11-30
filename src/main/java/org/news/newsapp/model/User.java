@@ -1,6 +1,5 @@
-package org.example.diagramnewsrecommendation.model;
+package org.news.newsapp.model;
 
-import org.bson.Document;
 
 public abstract class User {
     protected String name;

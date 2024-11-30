@@ -1,4 +1,4 @@
-package org.example.diagramnewsrecommendation.controller;
+package org.news.newsapp.controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -8,13 +8,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import org.example.diagramnewsrecommendation.db.ArticleService;
-import org.example.diagramnewsrecommendation.db.UserService;
-import org.example.diagramnewsrecommendation.model.Admin;
-import org.example.diagramnewsrecommendation.model.Article;
-import org.example.diagramnewsrecommendation.model.User;
-import org.example.diagramnewsrecommendation.util.Navigator;
-import org.example.diagramnewsrecommendation.util.SessionManager;
+import org.news.newsapp.db.ArticleService;
+import org.news.newsapp.db.UserService;
+import org.news.newsapp.model.Admin;
+import org.news.newsapp.model.Article;
+import org.news.newsapp.model.User;
+import org.news.newsapp.util.Navigator;
+import org.news.newsapp.util.SessionManager;
+
 
 import java.io.IOException;
 import java.net.URL;

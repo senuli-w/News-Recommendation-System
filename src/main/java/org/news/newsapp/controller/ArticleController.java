@@ -1,4 +1,4 @@
-package org.example.diagramnewsrecommendation.controller;
+package org.news.newsapp.controller;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -10,16 +10,15 @@ import javafx.scene.control.Slider;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import org.example.diagramnewsrecommendation.db.UserService;
-import org.example.diagramnewsrecommendation.model.Article;
-import org.example.diagramnewsrecommendation.model.Reader;
-import org.example.diagramnewsrecommendation.util.Navigator;
-import org.example.diagramnewsrecommendation.util.SessionManager;
+import org.news.newsapp.db.UserService;
+import org.news.newsapp.model.Article;
+import org.news.newsapp.model.Reader;
+import org.news.newsapp.util.Navigator;
+import org.news.newsapp.util.SessionManager;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
 
 public class ArticleController implements Initializable {
     @FXML    public Label title;

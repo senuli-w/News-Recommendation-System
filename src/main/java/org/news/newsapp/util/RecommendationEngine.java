@@ -1,14 +1,13 @@
-package org.example.diagramnewsrecommendation.util;
+package org.news.newsapp.util;
 
 import org.bson.Document;
-import org.example.diagramnewsrecommendation.model.Reader;
 
 import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
+import org.news.newsapp.model.Reader;
 
 public class RecommendationEngine {
     private int userId;

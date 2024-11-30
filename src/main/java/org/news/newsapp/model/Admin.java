@@ -1,7 +1,6 @@
-package org.example.diagramnewsrecommendation.model;
+package org.news.newsapp.model;
 
 import org.bson.Document;
-import org.example.diagramnewsrecommendation.model.User;
 
 public class Admin extends User implements Runnable{
     public Admin(String name, String email, String password) {

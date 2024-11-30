@@ -1,4 +1,4 @@
-package org.example.diagramnewsrecommendation.db;
+package org.news.newsapp.db;
 
 import com.mongodb.ConnectionString;
 import com.mongodb.client.*;

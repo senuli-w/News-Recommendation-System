@@ -1,12 +1,12 @@
-package org.example.diagramnewsrecommendation.util;
+package org.news.newsapp.util;
 
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import org.example.diagramnewsrecommendation.db.UserService;
-import org.example.diagramnewsrecommendation.model.Admin;
-import org.example.diagramnewsrecommendation.model.Reader;
-import org.example.diagramnewsrecommendation.model.User;
+import org.news.newsapp.db.UserService;
+import org.news.newsapp.model.Admin;
+import org.news.newsapp.model.Reader;
+import org.news.newsapp.model.User;
 
 public class SessionManager {
     private static User currentUser;

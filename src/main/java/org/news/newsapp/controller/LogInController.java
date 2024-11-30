@@ -1,4 +1,4 @@
-package org.example.diagramnewsrecommendation.controller;
+package org.news.newsapp.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -6,16 +6,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import org.example.diagramnewsrecommendation.db.UserService;
-import org.example.diagramnewsrecommendation.model.Admin;
-import org.example.diagramnewsrecommendation.model.Reader;
-import org.example.diagramnewsrecommendation.util.Navigator;
-import org.example.diagramnewsrecommendation.util.SessionManager;
+import org.news.newsapp.model.Admin;
+import org.news.newsapp.model.Reader;
+import org.news.newsapp.db.UserService;
+import org.news.newsapp.util.Navigator;
+import org.news.newsapp.util.SessionManager;
 
 import java.io.IOException;
-
-import static java.lang.Thread.sleep;
-
 public class LoginController{
     @FXML
     private TextField emailField;

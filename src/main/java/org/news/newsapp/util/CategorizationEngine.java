@@ -1,8 +1,9 @@
-package org.example.diagramnewsrecommendation.util;
+package org.news.newsapp.util;
 
-import org.example.diagramnewsrecommendation.db.ArticleService;
-import org.example.diagramnewsrecommendation.model.Article;
-import org.example.diagramnewsrecommendation.model.Reader;
+
+import org.news.newsapp.db.ArticleService;
+import org.news.newsapp.model.Article;
+import org.news.newsapp.model.Reader;
 
 import java.util.ArrayList;
 import java.util.List;

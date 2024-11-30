@@ -1,4 +1,4 @@
-package org.example.diagramnewsrecommendation.controller;
+package org.news.newsapp.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -10,14 +10,14 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
-import org.example.diagramnewsrecommendation.db.ArticleService;
-import org.example.diagramnewsrecommendation.db.UserService;
-import org.example.diagramnewsrecommendation.model.Article;
-import org.example.diagramnewsrecommendation.model.Reader;
-import org.example.diagramnewsrecommendation.util.CategorizationEngine;
-import org.example.diagramnewsrecommendation.util.Navigator;
-import org.example.diagramnewsrecommendation.util.RecommendationEngine;
-import org.example.diagramnewsrecommendation.util.SessionManager;
+import org.news.newsapp.db.ArticleService;
+import org.news.newsapp.db.UserService;
+import org.news.newsapp.model.Article;
+import org.news.newsapp.model.Reader;
+import org.news.newsapp.util.CategorizationEngine;
+import org.news.newsapp.util.Navigator;
+import org.news.newsapp.util.RecommendationEngine;
+import org.news.newsapp.util.SessionManager;
 
 import java.io.IOException;
 import java.net.URL;
@@ -38,8 +38,6 @@ public class HomeController implements Initializable {
     private final UserService userService = new UserService();
 
     public void loadArticles(){
-        System.out.println(finalArticles.size()+ " RC33");
-
         cardArea.getChildren().clear();
         for (Article article: finalArticles){
             VBox card = new VBox();
@@ -98,7 +96,7 @@ public class HomeController implements Initializable {
                     System.out.print(article.getId() + " ");
                 }
                 if (finalArticles.size()==6){
-                    System.out.println("");
+                    System.out.println(" - " + finalArticles.size());
                     break;
                 }
             }

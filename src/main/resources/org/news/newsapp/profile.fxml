@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER_LEFT" prefHeight="520.0" prefWidth="800.0" styleClass="page-background" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.diagramnewsrecommendation.controller.ProfileController">
+<VBox alignment="CENTER_LEFT" prefHeight="520.0" prefWidth="800.0" styleClass="page-background" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.news.newsapp.controller.ProfileController">
    <children>
       <HBox prefHeight="100.0" prefWidth="200.0" styleClass="nav-bar">
          <children>

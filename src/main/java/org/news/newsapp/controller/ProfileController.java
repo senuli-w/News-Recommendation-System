@@ -1,4 +1,4 @@
-package org.example.diagramnewsrecommendation.controller;
+package org.news.newsapp.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -8,11 +8,11 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
-import org.example.diagramnewsrecommendation.db.ArticleService;
-import org.example.diagramnewsrecommendation.db.UserService;
-import org.example.diagramnewsrecommendation.model.Reader;
-import org.example.diagramnewsrecommendation.util.Navigator;
-import org.example.diagramnewsrecommendation.util.SessionManager;
+import org.news.newsapp.db.ArticleService;
+import org.news.newsapp.db.UserService;
+import org.news.newsapp.model.Reader;
+import org.news.newsapp.util.Navigator;
+import org.news.newsapp.util.SessionManager;
 
 import java.io.IOException;
 import java.net.URL;

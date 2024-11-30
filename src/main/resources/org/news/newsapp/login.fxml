@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<HBox prefHeight="520.0" prefWidth="800.0" styleClass="page-background" stylesheets="@Styles/main.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.diagramnewsrecommendation.controller.LoginController">
+<HBox prefHeight="520.0" prefWidth="800.0" styleClass="page-background" stylesheets="@Styles/main.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.news.newsapp.controller.LoginController">
     <children>
         <Pane prefHeight="520.0" prefWidth="400.0">
             <children>

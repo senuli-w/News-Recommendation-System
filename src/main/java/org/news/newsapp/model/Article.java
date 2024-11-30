@@ -1,4 +1,4 @@
-package org.example.diagramnewsrecommendation.model;
+package org.news.newsapp.model;
 
 import org.bson.Document;
 

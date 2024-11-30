@@ -1,8 +1,8 @@
-package org.example.diagramnewsrecommendation.db;
+package org.news.newsapp.db;
 
 import com.mongodb.client.MongoCollection;
 import org.bson.Document;
-import org.example.diagramnewsrecommendation.model.Article;
+import org.news.newsapp.model.Article;
 
 import java.util.ArrayList;
 import java.util.List;

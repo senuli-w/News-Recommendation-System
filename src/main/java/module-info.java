@@ -11,7 +11,8 @@ module org.news.newsapp {
     opens org.news.newsapp to javafx.fxml;
     exports org.news.newsapp;
     exports org.news.newsapp.controller;
+    exports org.news.newsapp.model;
+    exports org.news.newsapp.db;
+    exports org.news.newsapp.util;
     opens org.news.newsapp.controller to javafx.fxml;
-    exports org.news.newsapp.service;
-    opens org.news.newsapp.service to javafx.fxml;
 }

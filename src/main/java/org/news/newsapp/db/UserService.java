@@ -1,13 +1,13 @@
-package org.example.diagramnewsrecommendation.db;
+package org.news.newsapp.db;
 
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import org.bson.Document;
 import com.mongodb.client.model.Updates;
-import org.example.diagramnewsrecommendation.model.Admin;
-import org.example.diagramnewsrecommendation.model.Article;
-import org.example.diagramnewsrecommendation.model.Reader;
-import org.example.diagramnewsrecommendation.model.User;
+import org.news.newsapp.model.Admin;
+import org.news.newsapp.model.Article;
+import org.news.newsapp.model.Reader;
+import org.news.newsapp.model.User;
 
 import java.util.ArrayList;
 import java.util.List;
