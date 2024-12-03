@@ -1,9 +1,9 @@
 package org.news.newsapp.model;
 
 /**
- * Class: User
- * Author: Senuli Wickramage
- * Description:
+ * @Class: User
+ * @Author: Senuli Wickramage
+ * @Description:
  * The User class serves as the base class for all user types in the application (e.g., Admin, Reader).
  * It contains common properties such as name, email, password, and type, and provides getter and setter methods
  * for managing these properties.

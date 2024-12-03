@@ -8,9 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Class: CategorizationEngine
- * Author: Senuli Wickramage
- * Description: This class handles the categorization of articles based on user recommendations.
+ * @Class: CategorizationEngine
+ * @Author: Senuli Wickramage
+ * @Description: This class handles the categorization of articles based on user recommendations.
  * It ensures that users only see new articles that they haven't viewed yet.
  */
 

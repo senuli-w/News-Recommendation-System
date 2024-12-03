@@ -3,9 +3,9 @@ package org.news.newsapp.model;
 import org.bson.Document;
 
 /**
- * Class: Admin
- * Author: Senuli Wickramage
- * Description:
+ * @Class: Admin
+ * @Author: Senuli Wickramage
+ * @Description:
  * The Admin class represents an administrator user in the application. It extends the User class, inheriting all
  * properties and behaviors of a user, with the added role of "ADMIN". This class provides a method to convert
  * the Admin object into a MongoDB-compatible Document for storage.

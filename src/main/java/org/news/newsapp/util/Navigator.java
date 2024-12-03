@@ -14,9 +14,9 @@ import java.io.IOException;
 import java.util.Objects;
 
 /**
- * Class: Navigator
- * Author: Senuli Wickramage
- * Description: The Navigator class handles the navigation between different scenes in the JavaFX application.
+ * @Class: Navigator
+ * @Author: Senuli Wickramage
+ * @Description: The Navigator class handles the navigation between different scenes in the JavaFX application.
  * It allows users to move between scenes by loading FXML files and switching the current scene.
  * This class contains methods that listen to user events (ActionEvent and MouseEvent) and change scenes accordingly.
  */

@@ -5,9 +5,9 @@ import org.bson.Document;
 import java.util.ArrayList;
 
 /**
- * Class: Reader
- * Author: Senuli Wickramage
- * Description:
+ * @Class: Reader
+ * @Author: Senuli Wickramage
+ * @Description:
  * The Reader class represents a reader user in the application. It extends the User class and contains additional properties
  * specific to a reader, such as the list of viewed articles, rated articles, ratings given, and categories of interest.
  * The class provides methods for managing these properties, adding categories, and converting the reader object to a MongoDB-compatible Document.

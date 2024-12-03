@@ -9,11 +9,10 @@ import java.util.Arrays;
 import java.util.List;
 import org.news.newsapp.model.Reader;
 
-
 /**
- * Class: RecommendationEngine
- * Author: Senuli Wickramage
- * Description : The RecommendationEngine class computes article recommendations for a given user based on collaborative filtering.
+ * @Class: RecommendationEngine
+ * @Author: Senuli Wickramage
+ * @Description: The RecommendationEngine class computes article recommendations for a given user based on collaborative filtering.
  * It uses a similarity matrix and ratings from other users to generate personalized suggestions.
  */
 public class RecommendationEngine {

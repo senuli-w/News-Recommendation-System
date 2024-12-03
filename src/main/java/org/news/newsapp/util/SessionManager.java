@@ -9,9 +9,9 @@ import org.news.newsapp.model.Reader;
 import org.news.newsapp.model.User;
 
 /**
- * Class: SessionManager
- * Author: Senuli Wickramage
- * Description: The SessionManager class handles user login, logout, and account creation for the application.
+ * @Class: SessionManager
+ * @Author: Senuli Wickramage
+ * @Description: The SessionManager class handles user login, logout, and account creation for the application.
  * It manages the current user session and validates the user inputs during login and account creation.
  * This class provides functionality to create a new user, authenticate users, and manage user data.
  * Note: If multi-threading is implemented, this class could be extended to create new threads for each logging-in user,

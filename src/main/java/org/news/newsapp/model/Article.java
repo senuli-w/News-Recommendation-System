@@ -3,9 +3,9 @@ package org.news.newsapp.model;
 import org.bson.Document;
 
 /**
- * Class: Article
- * Author: Senuli Wickramage
- * Description:
+ * @Class: Article
+ * @Author: Senuli Wickramage
+ * @Description:
  * The Article class represents a news article in the application. It contains properties such as title, content,
  * author, image URL, date and time of publication, and the category of the article. The class provides methods to
  * convert an article object to a MongoDB-compatible Document for storage and provides getter and setter methods
