@@ -9,14 +9,28 @@ import java.util.Arrays;
 import java.util.List;
 import org.news.newsapp.model.Reader;
 
-public class RecommendationEngine {
-    private int userId;
-    private int[][] userRatings;
-    private double[][] similarityMatrix;
-    private Document readerDocument;
-    private final String filePath = "C:\\Users\\Senuli\\Documents\\OOP\\DiagramNewsRecommendation\\src\\main\\resources\\org\\example\\diagramnewsrecommendation\\Data\\user_article_ratings_simple.csv";
-    private List<Integer> recommendations;
 
+/**
+ * Class: RecommendationEngine
+ * Author: Senuli Wickramage
+ * Description : The RecommendationEngine class computes article recommendations for a given user based on collaborative filtering.
+ * It uses a similarity matrix and ratings from other users to generate personalized suggestions.
+ */
+public class RecommendationEngine {
+    private int userId; // ID of the target user for whom recommendations are generated
+    private int[][] userRatings; // 2D array containing ratings of articles by users
+    private double[][] similarityMatrix; // 2D array containing similarity values between users
+    private Document readerDocument; // The reader document that contains the user's rating information
+    // Path to the CSV file containing ratings data
+    private final String filePath = "   C:\\Users\\Senuli\\Documents\\OOP\\DiagramNewsRecommendation\\src\\main\\resources\\org\\example\\diagramnewsrecommendation\\Data\\user_article_ratings_simple.csv";
+    private List<Integer> recommendations; // List of recommended article IDs for the user
+
+    /**
+     * Constructor that initializes the RecommendationEngine with a given user.
+     * It loads the user's rating data and computes the similarity matrix.
+     *
+     * @param reader The reader object for which recommendations will be generated.
+     */
     public RecommendationEngine (Reader reader){
         readerDocument = reader.toDocument();
         try {
@@ -27,6 +41,12 @@ public class RecommendationEngine {
         computeSimilarityMatrix();
     }
 
+    /**
+     * Method to get article recommendations for the user.
+     * Uses collaborative filtering to find the most relevant articles.
+     *
+     * @return A list of article IDs recommended for the user.
+     */
     public List<Integer> getRecommendations(){
         recommendations = recommendItems();
         System.out.println(recommendations.size());
@@ -38,11 +58,19 @@ public class RecommendationEngine {
         return recommendations;
     }
 
-    // Method to load the CSV file into the userRatings matrix
+    /**
+     * Method to load user ratings from a CSV file.
+     * It maps the ratings from the file to the user's ratings based on the user ID.
+     *
+     * @param filePath The path to the CSV file containing user ratings.
+     * @throws FileNotFoundException If the file is not found at the specified path.
+     */
     private void loadCsvFile(String filePath) throws FileNotFoundException {
+        // Retrieve rated articles and their respective ratings for the target user
         List<Document> ratedArticles = (List<Document>) readerDocument.get("ratedArticles");
         List<Integer> articleRatings = (List<Integer>) readerDocument.get("ratings");
 
+        // Try to load the CSV file containing ratings
         URL fileUrl = this.getClass().getClassLoader().getResource("user_article_ratings_simple.csv");
         List<int[]> rows = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
@@ -65,6 +93,7 @@ public class RecommendationEngine {
         // Initialize ratings with default value (e.g., 0 for unrated articles)
         Arrays.fill(ratings, 0);
 
+        // Map the user's ratings to the appropriate articles
         for (int i=0; i<rows.size(); i++){
             for(Document article: ratedArticles){
                 if ((Integer) article.get("id") == i) {
@@ -73,6 +102,7 @@ public class RecommendationEngine {
             }
         }
 
+        // Set the user ID based on the ratings list and add the ratings to the rows
         userId = rows.indexOf(ratings);
         rows.add(ratings);
 
@@ -80,33 +110,15 @@ public class RecommendationEngine {
         userRatings = rows.toArray(new int[0][]);
     }
 
-    public void head( int n){
-        for (int i = 0; i < n; i++){
-            for (int j = 0; j < n; j++){
-                System.out.print(userRatings[i][j] + " ");
-            }
-            System.out.println();
-        }
-    }
-
-    private double cosineSimilarity(int[] ratingsA, int[] ratingsB) {
-        double dotProduct = 0.0;
-        double magnitudeA = 0.0;
-        double magnitudeB = 0.0;
-
-        for (int i = 0; i < ratingsA.length; i++) {
-            dotProduct += ratingsA[i] * ratingsB[i];
-            magnitudeA += Math.pow(ratingsA[i], 2);
-            magnitudeB += Math.pow(ratingsB[i], 2);
-        }
-
-        return dotProduct / (Math.sqrt(magnitudeA) * Math.sqrt(magnitudeB));
-    }
-
+    /**
+     * Method to compute the similarity matrix between users.
+     * It uses cosine similarity to calculate how similar each user is to every other user.
+     */
     private void computeSimilarityMatrix() {
         int noOfUsers = userRatings.length;
         similarityMatrix = new double[noOfUsers][noOfUsers];
 
+        // Calculate the cosine similarity for each pair of users
         for (int i = 0; i < noOfUsers; i++) {
             for (int j = 0; j < noOfUsers; j++) {
                 similarityMatrix[i][j] = cosineSimilarity(userRatings[i], userRatings[j]);
@@ -114,10 +126,41 @@ public class RecommendationEngine {
         }
     }
 
+    /**
+     * Method to calculate the cosine similarity between two users' ratings.
+     * Cosine similarity measures the cosine of the angle between two vectors, which in this case are the users' ratings.
+     *
+     * @param ratingsA The ratings of user A.
+     * @param ratingsB The ratings of user B.
+     * @return The cosine similarity value between the two users.
+     */
+    private double cosineSimilarity(int[] ratingsA, int[] ratingsB) {
+        double dotProduct = 0.0; // Dot product of the two rating vectors
+        double magnitudeA = 0.0; // Magnitude of user A's rating vector
+        double magnitudeB = 0.0; // Magnitude of user B's rating vector
+
+        // Calculate the dot product and magnitudes
+        for (int i = 0; i < ratingsA.length; i++) {
+            dotProduct += ratingsA[i] * ratingsB[i];
+            magnitudeA += Math.pow(ratingsA[i], 2);
+            magnitudeB += Math.pow(ratingsB[i], 2);
+        }
+
+        // Return the cosine similarity
+        return dotProduct / (Math.sqrt(magnitudeA) * Math.sqrt(magnitudeB));
+    }
+
+    /**
+     * Method to generate article recommendations for the target user.
+     * It calculates weighted sums of article ratings based on the similarity between users and generates a list of recommended items.
+     *
+     * @return A list of article IDs recommended for the user.
+     */
     private List<Integer> recommendItems() {
         double[] weightedSums = new double[userRatings[0].length];
         double[] similaritySums = new double[userRatings[0].length];
 
+        // Loop through all users to compute weighted sums for each article
         for (int i = 0; i < userRatings.length; i++) {
             if (i == userId) continue; // Skip the target user
 
