@@ -1,0 +1,125 @@
+[33mcommit 462056115a16759690f37f1d117c8b55b6aefe17[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Senuli Wickramage <senuliwickramage@gmail.com>
+Date:   Sat Nov 30 12:02:06 2024 +0530
+
+    package names
+
+[33mcommit 2e05b52310a1cb562633e33d656bde6ac0628925[m
+Author: Senuli Wickramage <senuliwickramage@gmail.com>
+Date:   Sat Nov 30 11:27:39 2024 +0530
+
+    updated class files
+
+[33mcommit 1472226258f9ccfa782aab2ca6f5ffd6b4f36c77[m
+Author: Senuli Wickramage <senuliwickramage@gmail.com>
+Date:   Sat Nov 30 11:25:13 2024 +0530
+
+    added new resources
+
+[33mcommit e5fc4725c9c38027534ae1349ae3cc46877658f3[m
+Author: Senuli Wickramage <senuliwickramage@gmail.com>
+Date:   Mon Nov 25 23:03:29 2024 +0530
+
+    update recommendation part
+
+[33mcommit 8af6d5cd2b92b511d02e6bebfedcaa863bbb26bc[m
+Author: Senuli Wickramage <senuliwickramage@gmail.com>
+Date:   Wed Nov 20 21:20:26 2024 +0530
+
+    add recommendation algorithm
+
+[33mcommit 2023806cae388f3d18f3361a2e3cdaf4c0bd7a3d[m
+Author: Senuli Wickramage <senuliwickramage@gmail.com>
+Date:   Sun Nov 17 23:38:23 2024 +0530
+
+    get ratings
+
+[33mcommit 28439ab3ff744bf06ced4ae3c3eadacac5fd7e48[m
+Author: Senuli Wickramage <senuliwickramage@gmail.com>
+Date:   Fri Nov 15 14:58:44 2024 +0530
+
+    sign up, user exists
+
+[33mcommit cd569ab403ded17816664df0f20be81fa73c0dca[m
+Author: Senuli Wickramage <senuliwickramage@gmail.com>
+Date:   Fri Nov 15 00:08:50 2024 +0530
+
+    login, goToArticle, getViewdArticles-half
+
+[33mcommit 4397c270b678b9c9b869ad7e6837823a2784a010[m
+Author: Senuli Wickramage <senuliwickramage@gmail.com>
+Date:   Thu Nov 14 18:46:53 2024 +0530
+
+    navigation class
+
+[33mcommit 5e47dedab65b2c8a157e94ed33bba2bb9779fe88[m
+Author: Senuli Wickramage <senuliwickramage@gmail.com>
+Date:   Tue Nov 12 19:28:25 2024 +0530
+
+    add sign in logic
+
+[33mcommit 62e2ba227694ba997123c7719b3da288fc60d7df[m
+Author: Senuli Wickramage <senuliwickramage@gmail.com>
+Date:   Mon Nov 11 15:15:33 2024 +0530
+
+    add getting articles to home page
+
+[33mcommit fe1cf4b3ae0ed6df20da754b4d8aa799ae93b508[m
+Author: Senuli Wickramage <senuliwickramage@gmail.com>
+Date:   Fri Nov 8 15:30:28 2024 +0530
+
+    add new signup with categories logic
+
+[33mcommit 262fff8b22cd45521e8c29c700423dcfb12648cb[m
+Author: Senuli Wickramage <senuliwickramage@gmail.com>
+Date:   Thu Nov 7 17:22:05 2024 +0530
+
+    new database connected
+
+[33mcommit 73991a36ff3a8de62355a2d1e4726661fd7e697f[m
+Author: Senuli Wickramage <senuliwickramage@gmail.com>
+Date:   Tue Nov 5 10:09:22 2024 +0530
+
+    category changing added
+
+[33mcommit 9b4a12d8afabb946d77f08c854975bdfa0946461[m
+Author: Senuli Wickramage <senuliwickramage@gmail.com>
+Date:   Sun Nov 3 11:12:38 2024 +0530
+
+    removed api connection,  get data from database, dynamic ui(main page)
+
+[33mcommit 2259ae4342cb0a22db6a39e737e575e328f940b9[m
+Author: Senuli Wickramage <senuliwickramage@gmail.com>
+Date:   Wed Oct 30 22:46:12 2024 +0530
+
+    get api json data saved in the database
+
+[33mcommit 02efdcf63670e34885f88a2f19b0e4e7f4869e8b[m
+Author: Senuli Wickramage <senuliwickramage@gmail.com>
+Date:   Wed Oct 30 21:32:08 2024 +0530
+
+    add mongodb database connection
+
+[33mcommit b29ac38570955f1a35122c5be5db7b67bff2e1b0[m
+Author: Senuli Wickramage <senuliwickramage@gmail.com>
+Date:   Wed Oct 30 09:17:30 2024 +0530
+
+    add parsing json data into a java object
+
+[33mcommit 26204dd288e57613c636d8da3c232b909231944e[m
+Author: Senuli Wickramage <senuliwickramage@gmail.com>
+Date:   Mon Oct 28 18:44:44 2024 +0530
+
+    add Article and Source classes and parsed json string
+
+[33mcommit b12ac91c45bf3a6ff15f837f7cd59a714207daa0[m
+Author: Senuli Wickramage <senuliwickramage@gmail.com>
+Date:   Mon Oct 28 18:13:20 2024 +0530
+
+    add http request for the news api and start parsing data
+
+[33mcommit 237ef085eb438eb5ace5a4326f3446b58d0c7af3[m
+Author: Senuli Wickramage <senuliwickramage@gmail.com>
+Date:   Wed Oct 23 11:56:32 2024 +0530
+
+    Add initial files
