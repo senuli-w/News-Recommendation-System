@@ -23,7 +23,7 @@ public class CategorizationEngine{
      * @param recommendations A list of article IDs recommended to the user.
      * @return A list of articles that are newly recommended but not yet viewed by the user.
      */
-    public static ArrayList<Article> CategorizeArticles(List<Integer> recommendations){
+    public static ArrayList<Article> categorizeArticles(List<Integer> recommendations){
         Reader currentUser = (Reader) SessionManager.getCurrentUser();
         ArrayList<Article> finalArticles = new ArrayList<>();
 

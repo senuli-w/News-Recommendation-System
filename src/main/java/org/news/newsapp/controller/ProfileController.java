@@ -37,7 +37,7 @@ public class ProfileController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Reader currentUser = (Reader) SessionManager.getCurrentUser();
-        userName.setText(userName.getText());
+        userName.setText(currentUser.getName());
         nameField.setText(currentUser.getName());
         emailField.setText(currentUser.getEmail());
         passwordField.setText(currentUser.getPassword());
@@ -65,7 +65,6 @@ public class ProfileController implements Initializable {
         userService.update(nameField.getText(), emailField.getText(), passwordField.getText());
         setCategories();
 
-//        Navigator.goTo(event, "home.fxml");
         System.out.println("Reader "+ emailField.getText() + " updated details PC62");
         errorLabel.setText("Updated Account Successfully");
         return true;

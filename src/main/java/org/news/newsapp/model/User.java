@@ -1,5 +1,7 @@
 package org.news.newsapp.model;
 
+import org.bson.Document;
+
 /**
  * @Class: User
  * @Author: Senuli Wickramage
@@ -28,6 +30,13 @@ public abstract class User {
         this.email = email;
         this.password = password;
         this.type = type;
+    }
+
+    public Document toDocument(){
+        return new Document("name", this.name)
+                .append("email", this.email)
+                .append("password", this.password)
+                .append("type", this.type);
     }
 
     // getter and setter methods

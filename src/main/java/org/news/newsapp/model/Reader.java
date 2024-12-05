@@ -35,29 +35,11 @@ public class Reader extends User {
     }
 
     /**
-     * Converts the Reader object to a string representation for easy display or debugging.
-     *
-     * @return A string representing the Reader object with all its properties.
-     */
-    @Override
-    public String toString() {
-        return "Reader{" +
-                "viewedArticles=" + viewedArticles +
-                ", ratedArticles=" + ratedArticles +
-                ", ratings=" + ratings +
-                ", categories=" + categories +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", type='" + type + '\'' +
-                '}';
-    }
-
-    /**
      * Converts the Reader object into a MongoDB-compatible Document for storage.
      *
      * @return A Document representation of the Reader object with all its properties.
      */
+    @Override
     public Document toDocument() {
         return new Document("name", this.name)
                 .append("email", this.email)

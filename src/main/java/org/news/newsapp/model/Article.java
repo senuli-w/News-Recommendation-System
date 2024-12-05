@@ -42,24 +42,6 @@ public class Article {
     }
 
     /**
-     * Converts the Article object to a string representation for easy display.
-     *
-     * @return A string representing the Article object.
-     */
-    @Override
-    public String toString() {
-        return "Article{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", content='" + content + '\'' +
-                ", author='" + author + '\'' +
-                ", imageUrl='" + imageUrl + '\'' +
-                ", dateTime='" + dateTime + '\'' +
-                ", category='" + category + '\'' +
-                '}';
-    }
-
-    /**
      * Converts the Article object into a MongoDB-compatible Document for storage.
      *
      * @return A Document representation of the Article object.
@@ -77,58 +59,32 @@ public class Article {
     }
 
     // Getter and Setter Methods
+
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getTitle() {
         return title;
     }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     public String getContent() {
         return content;
     }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
     public String getAuthor() {
         return author;
     }
-
     public void setAuthor(String author) {
         this.author = author;
     }
-
     public String getImageUrl() {
         return imageUrl;
     }
-
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
-    }
-
     public String getDateTime() {
         return dateTime;
     }
-
-    public void setDateTime(String dateTime) {
-        this.dateTime = dateTime;
-    }
-
     public String getCategory() {
         return category;
     }
-
     public void setCategory(String category) {
         this.category = category;
     }

@@ -26,7 +26,7 @@ public class LoginController{
     public boolean login(ActionEvent event) throws IOException, InterruptedException {
         errorLabel.setText("");
         if (!userService.isAccountTaken(emailField.getText())){
-            errorLabel.setText("InvalidEmail");
+            errorLabel.setText("Invalid Email");
             return false;
         }
         if (!userService.get(emailField.getText()).getPassword().equals(passwordField.getText())) {

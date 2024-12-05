@@ -28,6 +28,7 @@ public class Admin extends User {
      *
      * @return A Document representation of the Admin object, containing name, email, password, and type.
      */
+    @Override
     public Document toDocument() {
         return new Document("name", this.name)
                 .append("email", this.email)

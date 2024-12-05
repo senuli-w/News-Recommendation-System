@@ -1,8 +1,6 @@
 package org.news.newsapp.util;
 
 import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
 import org.news.newsapp.db.UserService;
 import org.news.newsapp.model.Admin;
 import org.news.newsapp.model.Reader;
@@ -77,11 +75,11 @@ public class SessionManager {
      * @param errorLabel The Label to display error messages.
      * @return true if the inputs are valid, false otherwise.
      */
-    public static boolean validateCreateAccount(TextField nameField, TextField emailField, PasswordField passwordField, Label errorLabel){
+    public static boolean validateInputs(String nameField, String emailField, String passwordField, Label errorLabel){
         errorLabel.setText("");
-        String name = nameField.getText().trim();
-        String email = emailField.getText().trim();
-        String password = passwordField.getText().trim();
+        String name = nameField.trim();
+        String email = emailField.trim();
+        String password = passwordField.trim();
 
         // empty checking
         if (name.isEmpty() || email.isEmpty() || password.isEmpty()){

@@ -47,7 +47,8 @@ public class SignupController implements Initializable {
 
     @FXML
     public boolean createReaderAccount(ActionEvent event) throws IOException {
-        if (!SessionManager.validateCreateAccount(nameField, emailField, passwordField, errorLabel)){
+        if (!SessionManager.validateInputs(nameField.getText(),
+                emailField.getText(), passwordField.getText(), errorLabel)){
             return false;
         }
         SessionManager.createLoginUser(nameField.getText(), emailField.getText(), passwordField.getText());
