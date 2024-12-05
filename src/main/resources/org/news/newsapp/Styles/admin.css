@@ -11,10 +11,6 @@
     -fx-text-fill: white;
 }
 
-.tab-header-area{
-    -fx-background-color: blue;
-}
-
 .add-account {
     -fx-text-fill: white;
     -fx-font-size: 16;
@@ -31,4 +27,29 @@
 
 .table-column {
     -fx-text-fill: whitesmoke;
+}
+
+.card {
+    -fx-pref-width: 240;
+    -fx-background-color: rgba(91, 86, 85, 0.75);
+}
+
+.card:hover {
+    -fx-cursor: hand;
+    -fx-background-color: rgba(91, 86, 85, 1);
+}
+
+.card-topic {
+    -fx-font-family: Calibri;
+    -fx-text-fill: white;
+    -fx-wrap-text: true;
+    -fx-font-size: 17;
+    -fx-font-weight: 700;
+}
+
+.card-content {
+    -fx-text-alignment: justify;
+    -fx-text-fill: white;
+    -fx-wrap-text: true;
+    -fx-font-size: 15;
 }

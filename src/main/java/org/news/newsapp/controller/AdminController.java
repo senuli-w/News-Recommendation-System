@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 import org.news.newsapp.db.ArticleService;
 import org.news.newsapp.db.UserService;
 import org.news.newsapp.model.Admin;
@@ -46,6 +47,9 @@ public class AdminController implements Initializable {
     @FXML public TextField categoryField; // TextField for entering article category
     @FXML public TextField dateTimeField; // TextField for entering article date-time
     @FXML public TextField imageUrlField; // TextField for entering article image URL
+    @FXML public VBox articleCard; // Vbox for the new added article
+    @FXML public Label articleTopic; //Label for the new added article topic
+    @FXML public Label articleContent; // Label for the new added article content
 
     private ObservableList<User> userList; // List of users to be displayed in userTable
     private ObservableList<Article> articleList; // List of articles to be displayed in articleTable
@@ -150,6 +154,13 @@ public class AdminController implements Initializable {
                 dateTimeField.getText(), categoryField.getText());
 
         articleService.createNew(article);
+
+        // Display the new article
+        articleCard.setVisible(true);
+        articleTopic.setText(article.getTitle());
+        articleContent.setText(article.getContent());
+
+        errorLabel.setText("New Article Added.");
 
         // Update the article table to reflect the newly created article
         updateTableValues();

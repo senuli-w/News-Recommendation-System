@@ -93,7 +93,22 @@
                            <children>
                               <Label styleClass="add-account" text="Add new Article" />
                               <Label fx:id="articleErrorLabel" alignment="TOP_LEFT" prefHeight="14.0" prefWidth="342.0" styleClass="error-label" text="Please enter all details" textAlignment="CENTER" />
+                              <VBox fx:id="articleCard" alignment="TOP_CENTER" prefHeight="242.0" prefWidth="282.0" spacing="24.0" styleClass="card" visible="false">
+                                 <children>
+                                    <Label fx:id="articleTopic" styleClass="card-topic" text="Taiwan Semiconductor Manufacturing Company (TSM) Faces Market Uncertainty Despite $6.6 Billion CHIPS Act Boost" wrapText="true" />
+                                    <Label fx:id="articleContent" styleClass="card-content" text="Taiwan Semiconductor Manufacturing Company (TSM) Faces Market Uncertainty Despite $6.6 Billion CHIPS Act Boost" wrapText="true" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="8.0" left="20.0" right="20.0" top="10.0" />
+                                 </padding>
+                                 <VBox.margin>
+                                    <Insets left="20.0" right="20.0" />
+                                 </VBox.margin>
+                              </VBox>
                            </children>
+                           <padding>
+                              <Insets left="20.0" right="20.0" />
+                           </padding>
                         </VBox>
                         <VBox prefHeight="458.0" prefWidth="409.0" spacing="10.0">
                            <children>

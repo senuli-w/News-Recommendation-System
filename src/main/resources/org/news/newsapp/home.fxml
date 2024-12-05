@@ -118,6 +118,19 @@
                         <Insets bottom="8.0" />
                      </padding>
                   </VBox>
+                  <VBox layoutX="281.0" layoutY="20.0" prefWidth="100.0" spacing="8.0" styleClass="card">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="240.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@Images/f90919c411d1aa5d89e5e74b1fb5e45e.jpeg" />
+                           </image>
+                        </ImageView>
+                        <Label styleClass="card-topic" text="Taiwan Semiconductor Manufacturing Company (TSM) Faces Market Uncertainty Despite $6.6 Billion CHIPS Act Boost" />
+                     </children>
+                     <padding>
+                        <Insets bottom="8.0" />
+                     </padding>
+                  </VBox>
                </children>
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

@@ -21,7 +21,7 @@ public class RecommendationEngine {
     private double[][] similarityMatrix; // 2D array containing similarity values between users
     private Document readerDocument; // The reader document that contains the user's rating information
     // Path to the CSV file containing ratings data
-    private final String filePath = "   C:\\Users\\Senuli\\Documents\\OOP\\DiagramNewsRecommendation\\src\\main\\resources\\org\\example\\diagramnewsrecommendation\\Data\\user_article_ratings_simple.csv";
+    private final String filePath = "C:\\Users\\Senuli\\Documents\\OOP\\newsApp\\src\\main\\resources\\org\\news\\newsapp\\Data\\user_article_ratings_simple.csv";
     private List<Integer> recommendations; // List of recommended article IDs for the user
 
     /**
