@@ -59,11 +59,7 @@ public class Article {
     }
 
     // Getter and Setter Methods
-
-    public int getId() {
-        return id;
-    }
-
+    public int getId() {return id;}
     public String getTitle() {
         return title;
     }

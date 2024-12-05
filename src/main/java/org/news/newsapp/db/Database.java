@@ -4,7 +4,7 @@ import com.mongodb.ConnectionString;
 import com.mongodb.client.*;
 
 /**
- * @lass: Database
+ * @Class: Database
  * @Author: Senuli Wickramage
  * @Description:
  * The Database class manages the connection to the MongoDB database. It provides a method to connect to the database
